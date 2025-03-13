@@ -6,7 +6,7 @@ body {
     padding: 40px;
     display: flex;
     flex-direction: column;
-    max-height: 75vh;
+    max-height: 90vh;
 }
 
 #logo {
@@ -26,12 +26,12 @@ body {
     padding: 20px;
     line-height: 1.4;
     box-sizing: border-box;
-    position: auto; /* For positioning the input line */
+    position: relative;
+    overflow: auto;
 }
 
 #output {
     flex-grow: 1;
-    overflow-y: auto;
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-start; /* Start content from the top */
@@ -46,7 +46,8 @@ body {
     display: flex;
     background-color: black; /* Match the background */
     width: 100%;
-    user-select: none; /* Prevent selection of the prompt */
+    user-select: text;
+    bottom: 0;
 }
 
 .prompt {

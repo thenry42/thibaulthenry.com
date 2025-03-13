@@ -57,6 +57,7 @@ export function initializeTerminal() {
         newLine.className = "terminal-line";
         // Insert at the beginning of the output div (newest messages on top)
         outputDiv.prepend(newLine);
+        terminal.scrollTop = terminal.scrollHeight;
     }
 
     function processCommand(command) {
