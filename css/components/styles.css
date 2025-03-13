@@ -1,0 +1,57 @@
+body {
+    background-color: black;
+    color: green;
+    font-family: monospace;
+    margin: 0;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+#logo {
+    color: green;
+    text-align: left;
+    margin: 20px;
+    font-size: 16px;  /* Increased font size */
+    line-height: 1;
+    white-space: pre;
+}
+
+#terminal {
+    width: 100%;
+    height: calc(50vh - 200px);
+    display: flex;
+    flex-direction: column;  /* Changed from column-reverse */
+    padding: 26px;
+    box-sizing: border-box;
+}
+
+#output {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;  /* Display newest messages at the bottom */
+    font-size: 26px;
+    line-height: 1.2;
+    font-weight: lighter;
+}
+
+#input-line {
+    display: flex;
+}
+
+.prompt {
+    margin-right: 10px;
+    font-size: 26px;
+    font-weight: lighter;
+}
+
+#command-input {
+    background: transparent;
+    border: none;
+    color: green;
+    font-family: monospace;
+    font-size: 26px;
+    outline: none;
+    width: 100%;
+}
