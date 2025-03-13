@@ -1,29 +1,62 @@
 export function initializeTerminal() {
     const inputField = document.getElementById("command-input");
     const outputDiv = document.getElementById("output");
+    const terminal = document.getElementById("terminal");
+    
+    // Track if we're in selection mode
+    let isSelecting = false;
 
     // Always focus the input field
     function focusInput() {
-        inputField.focus();
+        // Only focus if we're not selecting text
+        if (!isSelecting && window.getSelection().toString() === '') {
+            inputField.focus();
+        }
     }
 
     // Focus input on page load
     focusInput();
 
-    // Focus input when clicking anywhere in the terminal
-    document.getElementById("terminal").addEventListener("click", focusInput);
+    // Handle mousedown event to detect start of selection
+    outputDiv.addEventListener("mousedown", function(event) {
+        isSelecting = true;
+    });
 
-    // Prevent losing focus when clicking the input or output area
+    // Handle mouseup event to detect end of selection
+    document.addEventListener("mouseup", function(event) {
+        // Short delay before allowing focus to return to input
+        setTimeout(() => {
+            isSelecting = false;
+            // Only refocus if no text is selected
+            if (window.getSelection().toString() === '') {
+                focusInput();
+            }
+        }, 100);
+    });
+
+    // Focus input when clicking directly on the terminal (but not on output)
+    terminal.addEventListener("click", function(event) {
+        // Only focus if we clicked directly on the terminal (not on output or during selection)
+        if (event.target === terminal && !isSelecting && window.getSelection().toString() === '') {
+            focusInput();
+        }
+    });
+
+    // Modify blur behavior to respect text selection
     inputField.addEventListener("blur", function() {
-        // Small delay to prevent focus issues
-        setTimeout(focusInput, 10);
+        // Only refocus if we're not selecting text
+        if (!isSelecting && window.getSelection().toString() === '') {
+            // Small delay to prevent focus issues
+            setTimeout(focusInput, 100);
+        }
     });
 
     function printOutput(text) {
         const newLine = document.createElement("div");
         newLine.textContent = text;
-        // Insert at the beginning of the output div (above existing content)
-        outputDiv.insertBefore(newLine, outputDiv.firstChild);
+        newLine.className = "terminal-line";
+        // Insert at the beginning of the output div (newest messages on top)
+        outputDiv.prepend(newLine);
     }
 
     function processCommand(command) {

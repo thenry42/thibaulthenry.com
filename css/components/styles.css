@@ -6,6 +6,7 @@ body {
     padding: 40px;
     display: flex;
     flex-direction: column;
+    max-height: 75vh;
 }
 
 #logo {
@@ -19,25 +20,33 @@ body {
 
 #terminal {
     width: 100%;
-    height: calc(50vh - 200px);
+    max-height: inherit;
     display: flex;
-    flex-direction: column;  /* Changed from column-reverse */
-    padding: 26px;
+    flex-direction: column;
+    padding: 20px;
+    line-height: 1.4;
     box-sizing: border-box;
+    position: auto; /* For positioning the input line */
 }
 
 #output {
     flex-grow: 1;
     overflow-y: auto;
     display: flex;
-    flex-direction: column-reverse;  /* Display newest messages at the bottom */
+    flex-direction: column-reverse;
+    justify-content: flex-start; /* Start content from the top */
     font-size: 26px;
-    line-height: 1.2;
+    line-height: 1.4;
     font-weight: lighter;
+    scrollbar-color: green;
+    cursor: text; /* Show text cursor in the output area */
 }
 
 #input-line {
     display: flex;
+    background-color: black; /* Match the background */
+    width: 100%;
+    user-select: none; /* Prevent selection of the prompt */
 }
 
 .prompt {
@@ -54,4 +63,17 @@ body {
     font-size: 26px;
     outline: none;
     width: 100%;
+    user-select: text;
+}
+
+.terminal-line {
+    user-select: text;
+    cursor: text;
+    padding: 2px 0;
+}
+
+/* Style for selected text */
+::selection {
+    background-color: rgba(0, 255, 0, 0.3);
+    color: white;
 }
