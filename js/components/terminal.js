@@ -1,3 +1,5 @@
+import { runHelp } from './help.js';
+
 export function initializeTerminal() {
     const inputField = document.getElementById("command-input");
     const outputDiv = document.getElementById("output");
@@ -53,9 +55,9 @@ export function initializeTerminal() {
 
     function printOutput(text) {
         const newLine = document.createElement("div");
-        newLine.textContent = text;
+        // Replace \n with <br> tags for proper HTML line breaks
+        newLine.innerHTML = text.replace(/\n/g, '<br>');
         newLine.className = "terminal-line";
-        // Insert at the beginning of the output div (newest messages on top)
         outputDiv.prepend(newLine);
         terminal.scrollTop = terminal.scrollHeight;
     }
@@ -63,7 +65,7 @@ export function initializeTerminal() {
     function processCommand(command) {
         switch (command.toLowerCase()) {
             case "help":
-                printOutput("Available commands: help, about, clear");
+                printOutput(runHelp());
                 break;
             case "about":
                 printOutput("This is a terminal-style website.");
