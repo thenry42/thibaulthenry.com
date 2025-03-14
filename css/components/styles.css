@@ -6,16 +6,53 @@ body {
     padding: 40px;
     display: flex;
     flex-direction: column;
+    height: 90vh;
     max-height: 90vh;
+}
+
+#main-container {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    height: inherit;
+    max-height: inherit;
+    overflow: auto;
+}
+
+#terminal-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+#content-container {
+    flex: 3;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 20px;
+    overflow: auto;
+    color: green;
+    font-family: monospace;
+    font-size: 18px;
+    max-height: 100%;
 }
 
 #logo {
     color: green;
     text-align: left;
-    margin: 20px;
-    font-size: 16px;  /* Increased font size */
+    font-size: 10px;  /* Increased font size */
     line-height: 1;
     white-space: pre;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 15px;
+    padding-top: 30px; /* Added extra padding at the top */
+    padding-left: 30px; /* Added extra padding on the left */
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 20px 0; /* Bottom margin only */
 }
 
 #terminal {
@@ -36,7 +73,7 @@ body {
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-start; /* Start content from the top */
-    font-size: 26px;
+    font-size: 20px;
     line-height: 1.4;
     font-weight: lighter;
     scrollbar-color: green;
@@ -53,7 +90,7 @@ body {
 
 .prompt {
     margin-right: 10px;
-    font-size: 26px;
+    font-size: 20px;
     font-weight: lighter;
 }
 
@@ -62,7 +99,7 @@ body {
     border: none;
     color: green;
     font-family: monospace;
-    font-size: 26px;
+    font-size: 20px;
     outline: none;
     width: 100%;
     user-select: text;
