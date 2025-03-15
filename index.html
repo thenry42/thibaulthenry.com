@@ -3,23 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terminal Website</title>
+    <title>Thibault's Portfolio</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <pre id="logo">
+    <div id="logo-container">
+        <pre id="logo">
 ████████╗██╗  ██╗██╗██████╗  █████╗ ██╗   ██╗██╗  ████████╗    ██╗  ██╗███████╗███╗   ██╗██████╗ ██╗   ██╗
 ╚══██╔══╝██║  ██║██║██╔══██╗██╔══██╗██║   ██║██║  ╚══██╔══╝    ██║  ██║██╔════╝████╗  ██║██╔══██╗╚██╗ ██╔╝
    ██║   ███████║██║██████╔╝███████║██║   ██║██║     ██║       ███████║█████╗  ██╔██╗ ██║██████╔╝ ╚████╔╝ 
    ██║   ██╔══██║██║██╔══██╗██╔══██║██║   ██║██║     ██║       ██╔══██║██╔══╝  ██║╚██╗██║██╔══██╗  ╚██╔╝  
    ██║   ██║  ██║██║██████╔╝██║  ██║╚██████╔╝███████╗██║       ██║  ██║███████╗██║ ╚████║██║  ██║   ██║   
    ╚═╝   ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝       ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   
-    </pre>
-    <div id="terminal">
-        <div id="output"></div>
-        <div id="input-line">
-            <span class="prompt">$></span>
-            <input type="text" id="command-input" autofocus>
+        </pre>
+        <div id="logo-right-container">
+            <div id="header-menu">
+                <a href="https://github.com/thenry42" target="_blank" class="menu-item">github</a>
+                <a href="javascript:void(0)" class="menu-item" onclick="document.getElementById('command-input').value='help'; document.getElementById('command-input').dispatchEvent(new KeyboardEvent('keypress', {'key': 'Enter'}));">help</a>
+            </div>
+        </div>
+    </div>
+    <div id="main-container">
+        <div id="terminal-container">
+            <div id="terminal">
+                <div id="output"></div>
+                <div id="input-line">
+                    <span class="prompt">$></span>
+                    <input type="text" id="command-input" autofocus>
+                </div>
+            </div>
+        </div>
+        <div id="content-container">
+            <!-- Content will be displayed here -->
         </div>
     </div>
     <script type="module" src="js/main.js" defer></script>
