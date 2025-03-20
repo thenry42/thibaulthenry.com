@@ -1,5 +1,5 @@
 import { runHelp } from './help.js';
-import { initializeViewport, displayWelcome, clearViewport, displayTextFile } from './viewport.js';
+import { initializeViewport, displayWelcome, clearViewport, displayHtmlFile } from './viewport.js';
 
 export function initializeTerminal() {
     const inputField = document.getElementById("command-input");
@@ -77,45 +77,49 @@ export function initializeTerminal() {
         switch (command.toLowerCase()) {
             case "welcome":
                 printOutput("Displaying welcome message...");
-                displayWelcome();
+                displayHtmlFile("welcome.html", "Welcome", "welcome-content");
                 break;
             case "help":
                 printOutput(runHelp());
                 break;
             case "status":
                 printOutput("Displaying status...");
-                displayTextFile("status.txt", "Status", "status-content");
+                displayHtmlFile("status.html", "Status", "status-content");
                 break;
             case "resume":
                 printOutput("Displaying resume...");
-                displayTextFile("resume.txt", "Resume", "resume-content");
+                displayHtmlFile("resume.html", "Resume", "resume-content");
                 break;
             case "projects":
                 printOutput("Displaying projects...");
-                displayTextFile("projects.txt", "Projects", "projects-content");
+                displayHtmlFile("projects.html", "Projects", "projects-content");
                 break;
             case "skills":
                 printOutput("Displaying skills...");
-                displayTextFile("skills.txt", "Skills", "skills-content");
+                displayHtmlFile("skills.html", "Skills", "skills-content");
                 break;
             case "experiences":
                 printOutput("Displaying experiences...");
-                displayTextFile("experiences.txt", "Experiences", "experiences-content");
+                displayHtmlFile("experiences.html", "Experiences", "experiences-content");
                 break;
             case "education":
                 printOutput("Displaying education...");
-                displayTextFile("education.txt", "Education", "education-content");
+                displayHtmlFile("education.html", "Education", "education-content");
                 break;
             case "about":
                 printOutput("Displaying about...");
-                displayTextFile("about.txt", "About", "about-content");
+                displayHtmlFile("about.html", "About", "about-content");
                 break;
             case "contact":
                 printOutput("Displaying contact information...");
-                displayTextFile("contact.txt", "Contact", "contact-content");
+                displayHtmlFile("contact.html", "Contact", "contact-content");
                 break;
             case "clear":
                 outputDiv.innerHTML = "";
+                break;
+            case "clear-all":
+                outputDiv.innerHTML = "";
+                clearViewport();
                 break;
             default:
                 printOutput("Error: command not found. Type 'help' for a list of available commands.");

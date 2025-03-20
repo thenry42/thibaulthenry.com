@@ -1,0 +1,66 @@
+/* Education section styling */
+.education-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.education-item {
+    border-left: 3px solid green;
+    padding-left: 20px;
+    position: relative;
+}
+
+.education-item::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: green;
+    border-radius: 50%;
+    left: -7px;
+    top: 5px;
+}
+
+.edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.school-name {
+    margin: 0;
+    color: #7cb7ff;
+}
+
+.edu-date {
+    color: #a0a0a0;
+    font-style: italic;
+}
+
+.edu-description {
+    margin: 8px 0;
+}
+
+.edu-highlights {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.edu-highlights li {
+    margin-bottom: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .edu-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .edu-date {
+        margin-top: 5px;
+    }
+}

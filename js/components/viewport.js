@@ -41,11 +41,8 @@ export function displayContent(content, title = "", customClass = "") {
     const contentElement = document.createElement("div");
     contentElement.className = "content-body";
     
-    // Process links first, then apply the same whitespace logic as terminal.js
-    const processedContent = processTextLinks(content);
-    contentElement.innerHTML = processedContent
-        .replace(/\n/g, '<br>')
-        .replace(/ {2,}/g, match => '&nbsp;'.repeat(match.length));
+    // Set HTML content directly - no text processing needed
+    contentElement.innerHTML = content;
     
     container.appendChild(contentElement);
     
@@ -54,14 +51,14 @@ export function displayContent(content, title = "", customClass = "") {
 }
 
 /**
- * Load text content from file and display it
- * @param {string} filename - File to load from assets/texts directory
+ * Load HTML content from file and display it
+ * @param {string} filename - File to load from pages/html directory
  * @param {string} title - Title for the content
  * @param {string} customClass - Optional custom CSS class
  */
-export async function displayTextFile(filename, title = "", customClass = "") {
+export async function displayHtmlFile(filename, title = "", customClass = "") {
     try {
-        const content = await fetchTextContent(filename);
+        const content = await fetchHtmlContent(filename);
         displayContent(content, title, customClass);
         return true;
     } catch (error) {
@@ -74,7 +71,7 @@ export async function displayTextFile(filename, title = "", customClass = "") {
  * Display welcome message
  */
 export async function displayWelcome() {
-    await displayTextFile("welcome.txt", "Welcome", "welcome-content");
+    await displayHtmlFile("welcome.html", "Welcome", "welcome-content");
 }
 
 /**
@@ -101,19 +98,14 @@ export function clearViewport() {
 }
 
 /**
- * Fetch text content from file
- * @param {string} filename - File to load from assets/texts directory
+ * Fetch HTML content from file
+ * @param {string} filename - File to load from pages directory
  * @returns {Promise<string>} - File content
  */
-async function fetchTextContent(filename) {
-    const response = await fetch(`assets/texts/${filename}`);
+async function fetchHtmlContent(filename) {
+    const response = await fetch(`./pages/${filename}`);
     if (!response.ok) {
         throw new Error(`Failed to load ${filename} (${response.status})`);
     }
     return await response.text();
-}
-
-function processTextLinks(text) {
-    // Convert [link text](http://example.com) syntax to actual HTML links
-    return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
 }
