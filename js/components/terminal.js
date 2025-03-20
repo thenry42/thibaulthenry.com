@@ -86,6 +86,30 @@ export function initializeTerminal() {
                 printOutput("Displaying status...");
                 displayTextFile("status.txt", "Status", "status-content");
                 break;
+            case "resume":
+                printOutput("Displaying resume...");
+                displayTextFile("resume.txt", "Resume", "resume-content");
+                break;
+            case "projects":
+                printOutput("Displaying projects...");
+                displayTextFile("projects.txt", "Projects", "projects-content");
+                break;
+            case "skills":
+                printOutput("Displaying skills...");
+                displayTextFile("skills.txt", "Skills", "skills-content");
+                break;
+            case "experiences":
+                printOutput("Displaying experiences...");
+                displayTextFile("experiences.txt", "Experiences", "experiences-content");
+                break;
+            case "education":
+                printOutput("Displaying education...");
+                displayTextFile("education.txt", "Education", "education-content");
+                break;
+            case "about":
+                printOutput("Displaying about...");
+                displayTextFile("about.txt", "About", "about-content");
+                break;
             case "contact":
                 printOutput("Displaying contact information...");
                 displayTextFile("contact.txt", "Contact", "contact-content");
@@ -94,7 +118,7 @@ export function initializeTerminal() {
                 outputDiv.innerHTML = "";
                 break;
             default:
-                printOutput("Command not found. Type 'help' for a list of commands.");
+                printOutput("Error: command not found. Type 'help' for a list of available commands.");
         }
     }
 
