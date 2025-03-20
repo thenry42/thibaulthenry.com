@@ -1,9 +1,13 @@
 import { runHelp } from './help.js';
+import { initializeViewport, displayWelcome, clearViewport, displayTextFile } from './viewport.js';
 
 export function initializeTerminal() {
     const inputField = document.getElementById("command-input");
     const outputDiv = document.getElementById("output");
     const terminal = document.getElementById("terminal");
+    
+    // Initialize the viewport
+    initializeViewport();
     
     // Track if we're in selection mode
     let isSelecting = false;
@@ -56,7 +60,14 @@ export function initializeTerminal() {
     function printOutput(text) {
         const newLine = document.createElement("div");
         // Replace \n with <br> tags for proper HTML line breaks
-        newLine.innerHTML = text.replace(/\n/g, '<br>');
+        // Replace spaces with &nbsp; to preserve multiple spaces
+        newLine.innerHTML = text
+            .replace(/\n/g, '<br>')
+            .replace(/ {2,}/g, match => '&nbsp;'.repeat(match.length));
+        
+        // Alternative: use CSS to preserve whitespace
+        // newLine.style.whiteSpace = "pre-wrap";
+        
         newLine.className = "terminal-line";
         outputDiv.prepend(newLine);
         terminal.scrollTop = terminal.scrollHeight;
@@ -64,11 +75,20 @@ export function initializeTerminal() {
 
     function processCommand(command) {
         switch (command.toLowerCase()) {
+            case "welcome":
+                printOutput("Displaying welcome message...");
+                displayWelcome();
+                break;
             case "help":
                 printOutput(runHelp());
                 break;
-            case "about":
-                printOutput("This is a terminal-style website.");
+            case "status":
+                printOutput("Displaying status...");
+                displayTextFile("status.txt", "Status", "status-content");
+                break;
+            case "contact":
+                printOutput("Displaying contact information...");
+                displayTextFile("contact.txt", "Contact", "contact-content");
                 break;
             case "clear":
                 outputDiv.innerHTML = "";

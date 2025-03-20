@@ -1,0 +1,7 @@
+Hello there!
+
+Welcome to my portfolio website. Feel free to roam accross pages
+by typing commands in the terminal. If you need any help, type "help"
+in the terminal or click on the help button in the navigation bar.
+
+Have fun!
