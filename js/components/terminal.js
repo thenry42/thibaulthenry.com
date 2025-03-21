@@ -1,5 +1,5 @@
 import { runHelp } from './help.js';
-import { initializeViewport, displayWelcome, clearViewport, displayHtmlFile } from './viewport.js';
+import { initializeViewport, clearViewport, displayHtmlFile } from './viewport.js';
 
 export function initializeTerminal() {
     const inputField = document.getElementById("command-input");
@@ -77,7 +77,7 @@ export function initializeTerminal() {
         switch (command.toLowerCase()) {
             case "welcome":
                 printOutput("Displaying welcome message...");
-                displayHtmlFile("welcome.html", "Welcome", "welcome-content");
+                displayHtmlFile("welcome.html", "", "welcome-content");
                 break;
             case "help":
                 printOutput(runHelp());
@@ -125,6 +125,9 @@ export function initializeTerminal() {
                 printOutput("Error: command not found. Type 'help' for a list of available commands.");
         }
     }
+
+    // Make processCommand globally accessible
+    window.processCommand = processCommand;
 
     inputField.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {

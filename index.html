@@ -18,8 +18,30 @@
         </pre>
         <div id="logo-right-container">
             <div id="header-menu">
-                <a href="https://github.com/thenry42" target="_blank" class="menu-item">github</a>
-                <a href="javascript:void(0)" class="menu-item" onclick="document.getElementById('command-input').value='help'; document.getElementById('command-input').dispatchEvent(new KeyboardEvent('keypress', {'key': 'Enter'}));">help</a>
+                <!-- Left section with navigation arrows and changing groups -->
+                <div class="menu-left">
+                    <div class="nav-container">
+                        <button class="nav-arrow" id="prev-nav">◀</button>
+                        <div class="nav-tabs">
+                            <a href="javascript:void(0)" class="menu-item" data-name="welcome" onclick="processCommand('welcome')">welcome</a>
+                            <a href="javascript:void(0)" class="menu-item" data-name="status" onclick="processCommand('status')">status</a>
+                            <a href="javascript:void(0)" class="menu-item" data-name="resume" onclick="processCommand('resume')">resume</a>
+                            <a href="javascript:void(0)" class="menu-item" data-name="projects" onclick="processCommand('projects')">projects</a>
+                            <a href="javascript:void(0)" class="menu-item" data-name="skills" onclick="processCommand('skills')">skills</a>
+                            <a href="javascript:void(0)" class="menu-item" data-name="experiences" onclick="processCommand('experiences')">experiences</a>
+                            <a href="javascript:void(0)" class="menu-item" data-name="education" onclick="processCommand('education')">education</a>
+                            <a href="javascript:void(0)" class="menu-item" data-name="about" onclick="processCommand('about')">about</a>
+                            <a href="javascript:void(0)" class="menu-item" data-name="contact" onclick="processCommand('contact')">contact</a>
+                        </div>
+                        <button class="nav-arrow" id="next-nav">▶</button>
+                    </div>
+                </div>
+                
+                <!-- Right section with permanent buttons -->
+                <div class="menu-right">
+                    <a href="https://github.com/thenry42" target="_blank" class="menu-item permanent-item">github</a>
+                    <a href="javascript:void(0)" class="menu-item permanent-item" onclick="document.getElementById('command-input').value='help'; document.getElementById('command-input').dispatchEvent(new KeyboardEvent('keypress', {'key': 'Enter'}));">help</a>
+                </div>
             </div>
         </div>
     </div>
@@ -38,5 +60,7 @@
         </div>
     </div>
     <script type="module" src="js/main.js" defer></script>
+    <script type="module" src="js/components/navbar.js" defer></script>
+    <script type="module" src="js/components/terminal.js" defer></script>
 </body>
 </html>

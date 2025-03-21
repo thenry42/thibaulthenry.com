@@ -140,3 +140,42 @@
         margin-bottom: 5px;
     }
 }
+
+/* Add these new styles to your existing welcome.css */
+
+.command-list {
+    list-style-type: none;
+    padding-left: 15px;
+    margin: 15px 0 20px 0;
+}
+
+.command-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.command-list li:before {
+    content: "▶";
+    color: green;
+    margin-right: 10px;
+}
+
+.fun-fact {
+    background-color: rgba(124, 183, 255, 0.1);
+    border-left: 3px solid #7cb7ff;
+    padding: 12px 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.emoji {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.fact-text {
+    line-height: 1.4;
+}

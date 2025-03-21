@@ -68,13 +68,6 @@ export async function displayHtmlFile(filename, title = "", customClass = "") {
 }
 
 /**
- * Display welcome message
- */
-export async function displayWelcome() {
-    await displayHtmlFile("welcome.html", "Welcome", "welcome-content");
-}
-
-/**
  * Display error message in the viewport
  * @param {string} message - Error message to display
  */
@@ -87,7 +80,7 @@ export function displayError(message) {
  */
 export function setEmptyState() {
     // Immediately display welcome message instead of empty instructions
-    displayWelcome();
+    displayHtmlFile("welcome.html", "", "welcome-content");
 }
 
 /**
