@@ -68,13 +68,25 @@ export function navPrev() {
     updateNavArrows();
 }
 
-function displayCurrentContent() {
+export function displayCurrentContent() {
     const navElements = document.querySelectorAll('.nav-tabs .menu-item');
     const currentNavItemName = navElements[currentNavItem].getAttribute('data-name');
+    
+    // Display the content for the current item
     displayHtmlFile(`${currentNavItemName}.html`, currentNavItemName.charAt(0).toUpperCase() + currentNavItemName.slice(1), `${currentNavItemName}-content`);
+    
+    // Check if the current content is the status page
+    const contentContainer = document.getElementById('content-container');
+    if (contentContainer) {
+        const statusHeader = contentContainer.querySelector('.status-header h2');
+        if (statusHeader && statusHeader.textContent.includes('Current Status')) {
+            console.log('This is the status page');
+            // Additional logic for the status page can be added here
+        }
+    }
 }
 
-function updateNavArrows() {
+export function updateNavArrows() {
     // Optional: Update arrows appearance based on current position
     document.getElementById('prev-nav').classList.toggle('active', true);
     document.getElementById('next-nav').classList.toggle('active', true);

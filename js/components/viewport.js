@@ -3,6 +3,8 @@
  * Handles displaying content in the right panel of the application
  */
 
+import { displayCurrentContent, updateNavArrows } from './navbar.js';
+
 // Store reference to content container
 let contentContainer;
 
@@ -60,6 +62,7 @@ export async function displayHtmlFile(filename, title = "", customClass = "") {
     try {
         const content = await fetchHtmlContent(filename);
         displayContent(content, title, customClass);
+        console.log('Displaying HTML file:', filename);
         return true;
     } catch (error) {
         displayError(`Failed to load ${filename}: ${error.message}`);
