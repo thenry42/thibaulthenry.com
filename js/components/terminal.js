@@ -142,6 +142,7 @@ export function processCommand(command)
             break;
         default:
             printOutput("Error: command not found. Type 'help' for a list of available commands.");
+            inputField.value = "";
     }
     navTo(command);
 }
