@@ -1,6 +1,0 @@
-personal mail:      h_thibault@yahoo.fr
-github:             [github.com/thenry42](https://github.com/thenry42)
-leetcode:           [leetcode.com/thenry42](https://leetcode.com/u/thenry42)
-codewars:           [codewars.com/thenry](https://www.codewars.com/users/thenry)
-codingame:          [codingame/thenry42](https://www.codingame.com/profile/508e11b521204ab17dd7134eb17432437457194)
-linkedin:           [linkedin.com/thibaulthenry010101](https://www.linkedin.com/in/thibaulthenry010101/)

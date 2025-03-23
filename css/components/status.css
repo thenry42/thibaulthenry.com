@@ -1,0 +1,101 @@
+/* Status page styling */
+.status-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+    padding-bottom: 12px;
+    margin-bottom: 10px;
+}
+
+.status-header h2 {
+    margin: 0;
+    color: #7cb7ff;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.status-badge.available {
+    background-color: rgba(0, 255, 0, 0.2);
+    color: #00ff00;
+    border: 1px solid #00ff00;
+}
+
+.status-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.status-content p {
+    margin-bottom: 16px;
+}
+
+.status-link {
+    color: #7cb7ff;
+    text-decoration: none;
+    border-bottom: 1px dashed #7cb7ff;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.status-link:hover {
+    color: #5da8ff;
+    border-color: #5da8ff;
+}
+
+.status-looking-for {
+    margin-top: 24px;
+    background-color: rgba(0, 255, 0, 0.05);
+    border-left: 3px solid #00ff00;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.status-looking-for h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #7cb7ff;
+}
+
+.status-list {
+    list-style-type: none;
+    padding-left: 10px;
+    margin: 0;
+}
+
+.status-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.list-icon {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+/* For responsive design */
+@media (max-width: 768px) {
+    .status-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .status-badge {
+        align-self: flex-start;
+    }
+}

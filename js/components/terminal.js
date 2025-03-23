@@ -1,16 +1,22 @@
 import { runHelp } from './help.js';
-import { initializeViewport, displayWelcome, clearViewport, displayTextFile } from './viewport.js';
+import { clearViewport, displayHtmlFile } from './viewport.js';
+import { updateCurrentNavItemDisplay, currentNavItem, navTo } from './navigation.js';
 
-export function initializeTerminal() {
-    const inputField = document.getElementById("command-input");
-    const outputDiv = document.getElementById("output");
-    const terminal = document.getElementById("terminal");
-    
-    // Initialize the viewport
-    initializeViewport();
+// Global variables
+let inputField;
+let outputDiv;
+let terminal;
+let isSelecting = false;
+window.processCommand = processCommand;
+
+export function initializeTerminal()
+{
+    inputField = document.getElementById("command-input");
+    outputDiv = document.getElementById("output");
+    terminal = document.getElementById("terminal");
     
     // Track if we're in selection mode
-    let isSelecting = false;
+    isSelecting = false;
 
     // Always focus the input field
     function focusInput() {
@@ -57,71 +63,6 @@ export function initializeTerminal() {
         }
     });
 
-    function printOutput(text) {
-        const newLine = document.createElement("div");
-        // Replace \n with <br> tags for proper HTML line breaks
-        // Replace spaces with &nbsp; to preserve multiple spaces
-        newLine.innerHTML = text
-            .replace(/\n/g, '<br>')
-            .replace(/ {2,}/g, match => '&nbsp;'.repeat(match.length));
-        
-        // Alternative: use CSS to preserve whitespace
-        // newLine.style.whiteSpace = "pre-wrap";
-        
-        newLine.className = "terminal-line";
-        outputDiv.prepend(newLine);
-        terminal.scrollTop = terminal.scrollHeight;
-    }
-
-    function processCommand(command) {
-        switch (command.toLowerCase()) {
-            case "welcome":
-                printOutput("Displaying welcome message...");
-                displayWelcome();
-                break;
-            case "help":
-                printOutput(runHelp());
-                break;
-            case "status":
-                printOutput("Displaying status...");
-                displayTextFile("status.txt", "Status", "status-content");
-                break;
-            case "resume":
-                printOutput("Displaying resume...");
-                displayTextFile("resume.txt", "Resume", "resume-content");
-                break;
-            case "projects":
-                printOutput("Displaying projects...");
-                displayTextFile("projects.txt", "Projects", "projects-content");
-                break;
-            case "skills":
-                printOutput("Displaying skills...");
-                displayTextFile("skills.txt", "Skills", "skills-content");
-                break;
-            case "experiences":
-                printOutput("Displaying experiences...");
-                displayTextFile("experiences.txt", "Experiences", "experiences-content");
-                break;
-            case "education":
-                printOutput("Displaying education...");
-                displayTextFile("education.txt", "Education", "education-content");
-                break;
-            case "about":
-                printOutput("Displaying about...");
-                displayTextFile("about.txt", "About", "about-content");
-                break;
-            case "contact":
-                printOutput("Displaying contact information...");
-                displayTextFile("contact.txt", "Contact", "contact-content");
-                break;
-            case "clear":
-                outputDiv.innerHTML = "";
-                break;
-            default:
-                printOutput("Error: command not found. Type 'help' for a list of available commands.");
-        }
-    }
-
     inputField.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
@@ -134,4 +75,74 @@ export function initializeTerminal() {
             focusInput(); // Ensure input stays focused after entering command
         }
     });
+}
+
+export function printOutput(text) {
+    const newLine = document.createElement("div");
+    // Replace \n with <br> tags for proper HTML line breaks
+    // Replace spaces with &nbsp; to preserve multiple spaces
+    newLine.innerHTML = text
+        .replace(/\n/g, '<br>')
+        .replace(/ {2,}/g, match => '&nbsp;'.repeat(match.length));
+    
+    // Alternative: use CSS to preserve whitespace
+    // newLine.style.whiteSpace = "pre-wrap";
+    
+    newLine.className = "terminal-line";
+    outputDiv.prepend(newLine);
+    terminal.scrollTop = terminal.scrollHeight;
+}
+
+export function processCommand(command)
+{
+    switch (command.toLowerCase()) {
+        case "welcome":
+            printOutput("Displaying welcome message...");
+            displayHtmlFile("welcome.html", "", "welcome-content");
+            break;
+        case "help":
+            printOutput(runHelp());
+            inputField.value = "";
+            break;
+        case "status":
+            printOutput("Displaying status...");
+            displayHtmlFile("status.html", "Status", "status-content");
+            break;
+        case "resume":
+            printOutput("Displaying resume...");
+            displayHtmlFile("resume.html", "Resume", "resume-content");
+            break;
+        case "projects":
+            printOutput("Displaying projects...");
+            displayHtmlFile("projects.html", "Projects", "projects-content");
+            break;
+        case "skills":
+            printOutput("Displaying skills...");
+            displayHtmlFile("skills.html", "Skills", "skills-content");
+            break;
+        case "experiences":
+            printOutput("Displaying experiences...");
+            displayHtmlFile("experiences.html", "Experiences", "experiences-content");
+            break;
+        case "education":
+            printOutput("Displaying education...");
+            displayHtmlFile("education.html", "Education", "education-content");
+            break;
+        case "about":
+            printOutput("Displaying about...");
+            displayHtmlFile("about.html", "About", "about-content");
+            break;
+        case "contact":
+            printOutput("Displaying contact information...");
+            displayHtmlFile("contact.html", "Contact", "contact-content");
+            break;
+        case "clear":
+            outputDiv.innerHTML = "";
+            inputField.value = "";
+            break;
+        default:
+            printOutput("Error: command not found. Type 'help' for a list of available commands.");
+            inputField.value = "";
+    }
+    navTo(command);
 }
