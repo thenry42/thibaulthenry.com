@@ -98,7 +98,7 @@ export function processCommand(command)
     switch (command.toLowerCase()) {
         case "welcome":
             printOutput("Displaying welcome message...");
-            displayHtmlFile("welcome.html", "", "welcome-content");
+            displayHtmlFile("welcome.html", "welcome-content");
             break;
         case "help":
             printOutput(runHelp());
@@ -106,35 +106,35 @@ export function processCommand(command)
             break;
         case "status":
             printOutput("Displaying status...");
-            displayHtmlFile("status.html", "Status", "status-content");
+            displayHtmlFile("status.html", "status-content");
             break;
         case "resume":
             printOutput("Displaying resume...");
-            displayHtmlFile("resume.html", "Resume", "resume-content");
+            displayHtmlFile("resume.html", "resume-content");
             break;
         case "projects":
             printOutput("Displaying projects...");
-            displayHtmlFile("projects.html", "Projects", "projects-content");
+            displayHtmlFile("projects.html", "projects-content");
             break;
         case "skills":
             printOutput("Displaying skills...");
-            displayHtmlFile("skills.html", "Skills", "skills-content");
+            displayHtmlFile("skills.html", "skills-content");
             break;
         case "experiences":
             printOutput("Displaying experiences...");
-            displayHtmlFile("experiences.html", "Experiences", "experiences-content");
+            displayHtmlFile("experiences.html", "experiences-content");
             break;
         case "education":
             printOutput("Displaying education...");
-            displayHtmlFile("education.html", "Education", "education-content");
+            displayHtmlFile("education.html", "education-content");
             break;
         case "about":
             printOutput("Displaying about...");
-            displayHtmlFile("about.html", "About", "about-content");
+            displayHtmlFile("about.html", "about-content");
             break;
         case "contact":
             printOutput("Displaying contact information...");
-            displayHtmlFile("contact.html", "Contact", "contact-content");
+            displayHtmlFile("contact.html", "contact-content");
             break;
         case "clear":
             outputDiv.innerHTML = "";

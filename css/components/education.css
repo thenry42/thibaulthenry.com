@@ -6,9 +6,25 @@
 }
 
 .education-item {
-    border-left: 3px solid green;
-    padding-left: 20px;
     position: relative;
+    padding-left: 20px;
+}
+
+/* Remove the border-left from the education-item */
+/* Instead, we'll add a pseudo-element that starts below the header */
+.education-item::after {
+    content: '';
+    position: absolute;
+    top: 7px; /* Position below the header */
+    bottom: 0px; /* Extend to the gap between items */
+    left: 0;
+    width: 3px;
+    background-color: green;
+}
+
+/* Remove bottom connection for the last item */
+.education-item:last-child::after {
+    bottom: 0;
 }
 
 .education-item::before {
@@ -18,8 +34,8 @@
     height: 12px;
     background-color: green;
     border-radius: 50%;
-    left: -7px;
-    top: 5px;
+    left: -4px;
+    top: 7px;
 }
 
 .edu-header {
@@ -62,5 +78,10 @@
     
     .edu-date {
         margin-top: 5px;
+    }
+    
+    /* Adjust the vertical line position for mobile */
+    .education-item::after {
+        top: 50px; /* Adjust based on wrapping header height */
     }
 }

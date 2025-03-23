@@ -9,20 +9,13 @@ export function initializeViewport()
     setEmptyState();
 }
 
-export function displayContent(content, title = "", customClass = "") {
+export function displayContent(content, customClass = "") {
     // Clear existing content
     contentContainer.innerHTML = "";
     
     // Create a container for the content
     const container = document.createElement("div");
     container.className = `content-box ${customClass}`.trim();
-    
-    // Add title if provided
-    if (title) {
-        const titleElement = document.createElement("h2");
-        titleElement.textContent = title;
-        container.appendChild(titleElement);
-    }
     
     // Add content
     const contentElement = document.createElement("div");
@@ -35,10 +28,10 @@ export function displayContent(content, title = "", customClass = "") {
     contentContainer.appendChild(container);
 }
 
-export async function displayHtmlFile(filename, title = "", customClass = "") {
+export async function displayHtmlFile(filename, customClass = "") {
     try {
         const content = await fetchHtmlContent(filename);
-        displayContent(content, title, customClass);
+        displayContent(content, customClass);
         console.log('Displaying HTML file:', filename);
         return true;
     } catch (error) {
@@ -52,7 +45,7 @@ export function displayError(message) {
 }
 
 export function setEmptyState() {
-    displayHtmlFile("welcome.html", "", "welcome-content");
+    displayHtmlFile("welcome.html", "welcome-content");
 }
 
 export function clearViewport() {
