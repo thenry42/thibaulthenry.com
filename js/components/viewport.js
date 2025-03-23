@@ -1,29 +1,14 @@
-/**
- * Viewport module
- * Handles displaying content in the right panel of the application
- */
+import { displayCurrentContent, updateCurrentNavItemDisplay, currentNavItem } from './navigation.js';
 
-import { displayCurrentContent, updateNavArrows } from './navbar.js';
-
-// Store reference to content container
+// Global variables
 let contentContainer;
 
-/**
- * Initialize the viewport
- */
-export function initializeViewport() {
+export function initializeViewport()
+{
     contentContainer = document.getElementById("content-container");
-    
-    // Initial empty state
     setEmptyState();
 }
 
-/**
- * Display content in the right panel
- * @param {string} content - HTML content to display
- * @param {string} title - Optional title for the content box
- * @param {string} customClass - Optional custom CSS class for styling specific content types
- */
 export function displayContent(content, title = "", customClass = "") {
     // Clear existing content
     contentContainer.innerHTML = "";
@@ -47,17 +32,9 @@ export function displayContent(content, title = "", customClass = "") {
     contentElement.innerHTML = content;
     
     container.appendChild(contentElement);
-    
-    // Add to right panel
     contentContainer.appendChild(container);
 }
 
-/**
- * Load HTML content from file and display it
- * @param {string} filename - File to load from pages/html directory
- * @param {string} title - Title for the content
- * @param {string} customClass - Optional custom CSS class
- */
 export async function displayHtmlFile(filename, title = "", customClass = "") {
     try {
         const content = await fetchHtmlContent(filename);
@@ -70,34 +47,18 @@ export async function displayHtmlFile(filename, title = "", customClass = "") {
     }
 }
 
-/**
- * Display error message in the viewport
- * @param {string} message - Error message to display
- */
 export function displayError(message) {
     displayContent(`<p class="error-message">${message}</p>`, "Error", "error-content");
 }
 
-/**
- * Set the viewport to display welcome message as the default state
- */
 export function setEmptyState() {
-    // Immediately display welcome message instead of empty instructions
     displayHtmlFile("welcome.html", "", "welcome-content");
 }
 
-/**
- * Clear the viewport content
- */
 export function clearViewport() {
     contentContainer.innerHTML = "";
 }
 
-/**
- * Fetch HTML content from file
- * @param {string} filename - File to load from pages directory
- * @returns {Promise<string>} - File content
- */
 async function fetchHtmlContent(filename) {
     const response = await fetch(`./pages/${filename}`);
     if (!response.ok) {
