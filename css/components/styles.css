@@ -371,7 +371,7 @@ h2 {
     justify-content: space-between;
     align-items: center;
     background-color: black;
-    padding: 20px;
+    padding: 30px 20px; /* Increased padding for better spacing */
     border: 1px solid green;
     border-radius: 5px;
     margin-top: 20px;
