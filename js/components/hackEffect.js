@@ -12,7 +12,7 @@ export const hackConfig = {
     
     // Character reveal rate multipliers based on text length
     revealRate: {
-        veryLong: 3,    // For text > 100 chars
+        veryLong: 6,    // For text > 100 chars
         long: 2.5,      // For text > 50 chars
         medium: 2,      // For text > 20 chars
         short: 1.5      // For text <= 20 chars
