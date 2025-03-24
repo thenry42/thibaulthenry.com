@@ -87,7 +87,7 @@ export function navNext() {
     currentNavItem = (currentNavItem + 1) % navElements.length;
     
     updateCurrentNavItemDisplay();
-    displayCurrentContent();
+    //displayCurrentContent();
     runCommand(navElements[currentNavItem].title);
 }
 
@@ -96,7 +96,7 @@ export function navPrev() {
     currentNavItem = (currentNavItem - 1 + navElements.length) % navElements.length;
     
     updateCurrentNavItemDisplay();
-    displayCurrentContent();
+    //displayCurrentContent();
     runCommand(navElements[currentNavItem].title);
 }
 

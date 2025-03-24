@@ -1,12 +1,14 @@
 import { runHelp } from './help.js';
-import { clearViewport, displayHtmlFile } from './viewport.js';
+import { clearViewport, displayHtmlFile, loadContentWithoutHistory } from './viewport.js';
 import { updateCurrentNavItemDisplay, currentNavItem, navTo } from './navigation.js';
+import { addToHistory, getHistory, getHistoryItem } from './commandHistory.js';
 
 // Global variables
 let inputField;
 let outputDiv;
 let terminal;
 let isSelecting = false;
+let historyPosition = -1; // Current position in command history when navigating
 window.processCommand = processCommand;
 
 export function initializeTerminal()
@@ -63,6 +65,58 @@ export function initializeTerminal()
         }
     });
 
+    // Handle keydown for special keys like up/down arrows
+    inputField.addEventListener("keydown", function(event) {
+        const history = getHistory();
+        
+        // Up arrow - navigate back in history
+        if (event.key === "ArrowUp") {
+            event.preventDefault();
+            
+            // If we're already at the last history item, do nothing
+            if (historyPosition >= history.length - 1) {
+                return;
+            }
+            
+            // Move up in history
+            historyPosition++;
+            inputField.value = getHistoryItem(historyPosition) || "";
+            
+            // Move cursor to end of input
+            setTimeout(() => {
+                inputField.selectionStart = inputField.selectionEnd = inputField.value.length;
+            }, 0);
+        }
+        
+        // Down arrow - navigate forward in history
+        else if (event.key === "ArrowDown") {
+            event.preventDefault();
+            
+            // If we're at the beginning of history or before, clear input
+            if (historyPosition <= 0) {
+                historyPosition = -1;
+                inputField.value = "";
+                return;
+            }
+            
+            // Move down in history
+            historyPosition--;
+            inputField.value = getHistoryItem(historyPosition) || "";
+            
+            // Move cursor to end of input
+            setTimeout(() => {
+                inputField.selectionStart = inputField.selectionEnd = inputField.value.length;
+            }, 0);
+        }
+        
+        // Escape - clear input
+        else if (event.key === "Escape") {
+            event.preventDefault();
+            inputField.value = "";
+            historyPosition = -1;
+        }
+    });
+
     inputField.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
@@ -70,11 +124,27 @@ export function initializeTerminal()
             if (command) {
                 printOutput("$> " + command);
                 processCommand(command);
+                
+                // Add to history and reset history position
+                addToHistory(command);
+                historyPosition = -1;
             }
             inputField.value = "";
             focusInput(); // Ensure input stays focused after entering command
         }
     });
+    
+    // Add a history command
+    window.commandHistory = function() {
+        printOutput("Command History:");
+        const history = getHistory();
+        if (history.length === 0) {
+            printOutput("No commands in history.");
+        } else {
+            printOutput(history.map((cmd, i) => `${i+1}. ${cmd}`).join('\n'));
+        }
+        return "Command history displayed.";
+    };
 }
 
 export function printOutput(text) {
@@ -101,6 +171,10 @@ export function simulateCommand(command)
     }
     printOutput("$> " + command);
     processCommand(command);
+    
+    // Add simulated commands to history too
+    addToHistory(command);
+    historyPosition = -1;
 }
 
 export function processCommand(command)
@@ -142,6 +216,9 @@ export function processCommand(command)
             printOutput("Displaying contact information...");
             displayHtmlFile("contact.html", "contact-content");
             break;
+        case "history":
+            window.commandHistory();
+            break;
         case "clear":
             outputDiv.innerHTML = "";
             inputField.value = "";
@@ -157,7 +234,7 @@ export function processCommand(command)
 
 export function homeButton()
 {
-    processCommand("welcome");
+    loadContentWithoutHistory("welcome.html", "welcome-content");
     processCommand("clear");
     simulateCommand("help");
 }
