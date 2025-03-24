@@ -1,4 +1,5 @@
 import { displayCurrentContent, updateCurrentNavItemDisplay, currentNavItem } from './navigation.js';
+import { applyHackEffect } from './hackEffect.js';
 
 // Global variables
 let contentContainer;
@@ -28,16 +29,32 @@ export function displayContent(content, customClass = "") {
     contentContainer.appendChild(container);
 }
 
-export async function displayHtmlFile(filename, customClass = "") {
-    try {
-        const content = await fetchHtmlContent(filename);
-        displayContent(content, customClass);
-        console.log('Displaying HTML file:', filename);
-        return true;
-    } catch (error) {
-        displayError(`Failed to load ${filename}: ${error.message}`);
-        return false;
-    }
+export function displayHtmlFile(fileName, contentId) {
+    const contentContainer = document.getElementById('content-container');
+    if (!contentContainer) return false;
+    
+    fetch(`pages/${fileName}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load ${fileName}: ${response.status} ${response.statusText}`);
+            }
+            return response.text();
+        })
+        .then(html => {
+            contentContainer.innerHTML = html;
+            
+            // Apply hack effect to the newly loaded content
+            setTimeout(() => {
+                const contentElement = contentContainer.querySelector(`.${contentId}`) || contentContainer;
+                applyHackEffect(contentElement);
+            }, 50); // Short delay to ensure DOM is updated
+        })
+        .catch(error => {
+            console.error('Error loading content:', error);
+            contentContainer.innerHTML = `<div class="error">Error loading content: ${error.message}</div>`;
+        });
+    
+    return true;
 }
 
 export function displayError(message) {

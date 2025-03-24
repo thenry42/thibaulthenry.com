@@ -1,6 +1,7 @@
 import { initializeTerminal, homeButton, simulateCommand } from './components/terminal.js';
 import { initializeNavigation, navNext, navPrev} from './components/navigation.js';
 import { initializeViewport } from './components/viewport.js';
+import { initHackEffect } from './components/hackEffect.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeTerminal();
     initializeNavigation();
     initializeViewport();
+    initHackEffect();
 
     document.getElementById('next-nav').addEventListener('click', navNext);
     document.getElementById('prev-nav').addEventListener('click', navPrev);
