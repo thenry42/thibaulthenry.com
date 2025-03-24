@@ -1,4 +1,4 @@
-import { displayCurrentContent, updateCurrentNavItemDisplay, currentNavItem } from './navigation.js';
+import { displayCurrentContent, updateCurrentNavItemDisplay, currentNavItem, navTo } from './navigation.js';
 import { applyHackEffect } from './hackEffect.js';
 
 // Global variables
@@ -113,6 +113,8 @@ function navigateBack() {
         loadContentWithoutHistory(item.fileName, item.contentId);
         updateNavigationArrows();
     }
+    
+    navTo(item.fileName.split(".")[0]);
 }
 
 // Navigate to next content (newer)
@@ -130,6 +132,8 @@ function navigateForward() {
         loadContentWithoutHistory(item.fileName, item.contentId);
         updateNavigationArrows();
     }
+
+    navTo(item.fileName.split(".")[0]);
 }
 
 // Update the state of navigation arrows
