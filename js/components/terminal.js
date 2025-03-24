@@ -93,6 +93,16 @@ export function printOutput(text) {
     terminal.scrollTop = terminal.scrollHeight;
 }
 
+// Function to simulate typing a command and then executing it
+export function simulateCommand(command)
+{
+    if (inputField) {
+        inputField.value = command;
+    }
+    printOutput("$> " + command);
+    processCommand(command);
+}
+
 export function processCommand(command)
 {
     switch (command.toLowerCase()) {
@@ -107,10 +117,6 @@ export function processCommand(command)
         case "status":
             printOutput("Displaying status...");
             displayHtmlFile("status.html", "status-content");
-            break;
-        case "resume":
-            printOutput("Displaying resume...");
-            displayHtmlFile("resume.html", "resume-content");
             break;
         case "projects":
             printOutput("Displaying projects...");
@@ -144,5 +150,14 @@ export function processCommand(command)
             printOutput("Error: command not found. Type 'help' for a list of available commands.");
             inputField.value = "";
     }
-    navTo(command);
+    if (command.toLowerCase() !== "clear" && command.toLowerCase() !== "help") {
+        navTo(command);
+    }
+}
+
+export function homeButton()
+{
+    processCommand("welcome");
+    processCommand("clear");
+    simulateCommand("help");
 }

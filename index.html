@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="logo-container">
-        <pre id="logo">
+        <pre id="logo" onclick="window.homeButton()" style="cursor: pointer;">
 ████████╗██╗  ██╗██╗██████╗  █████╗ ██╗   ██╗██╗  ████████╗    ██╗  ██╗███████╗███╗   ██╗██████╗ ██╗   ██╗
 ╚══██╔══╝██║  ██║██║██╔══██╗██╔══██╗██║   ██║██║  ╚══██╔══╝    ██║  ██║██╔════╝████╗  ██║██╔══██╗╚██╗ ██╔╝
    ██║   ███████║██║██████╔╝███████║██║   ██║██║     ██║       ███████║█████╗  ██╔██╗ ██║██████╔╝ ╚████╔╝ 
@@ -32,7 +32,7 @@
                 <!-- Right section with permanent buttons -->
                 <div class="menu-right">
                     <a href="https://github.com/thenry42" target="_blank" class="menu-item permanent-item">github</a>
-                    <a href="javascript:void(0)" class="menu-item permanent-item" onclick="document.getElementById('command-input').value='help'; document.getElementById('command-input').dispatchEvent(new KeyboardEvent('keypress', {'key': 'Enter'}));">help</a>
+                    <a href="javascript:void(0)" class="menu-item permanent-item" onclick="window.simulateCommand('help')">help</a>
                 </div>
             </div>
         </div>
