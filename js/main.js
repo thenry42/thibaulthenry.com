@@ -3,6 +3,7 @@ import { initializeNavigation, navNext, navPrev, runCommand } from './components
 import { initializeViewport } from './components/viewport.js';
 import { initHackEffect } from './components/hackEffect.js';
 import { initCommandHistory } from './components/commandHistory.js';
+import { initializeProjects } from './components/projects.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     window.homeButton = homeButton;
@@ -14,8 +15,29 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeViewport();
     initHackEffect();
     initCommandHistory();
-
-    document.getElementById('next-nav').addEventListener('click', navNext);
-    document.getElementById('prev-nav').addEventListener('click', navPrev);
+    
+    // Initialize projects filtering when viewing projects
+    document.getElementById('next-nav').addEventListener('click', checkForProjects);
+    document.getElementById('prev-nav').addEventListener('click', checkForProjects);
+    
+    // Also initialize when clicking on menu items or using terminal commands
+    const observer = new MutationObserver(() => {
+        checkForProjects();
+    });
+    
+    // Start observing the content container for changes
+    const contentContainer = document.getElementById('content-container');
+    if (contentContainer) {
+        observer.observe(contentContainer, { childList: true });
+    }
 });
+
+// Check if projects page is loaded and initialize if it is
+function checkForProjects() {
+    setTimeout(() => {
+        if (document.querySelector('.projects-container')) {
+            initializeProjects();
+        }
+    }, 100);
+}
 
