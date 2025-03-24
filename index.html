@@ -36,6 +36,7 @@
             </div>
         </div>
     </div>
+
     <div id="main-container">
         <div id="terminal-container">
             <div id="terminal">
@@ -50,12 +51,20 @@
             <div id="content-container">
                 <!-- Content will be displayed here -->
             </div>
-            <div id="content-nav">
-                <button class="content-nav-arrow disabled" id="content-nav-back">◀</button>
-                <button class="content-nav-arrow disabled" id="content-nav-forward">▶</button>
-            </div>
         </div>
     </div>
+    
+    <!-- Convert to full-width footer navigation -->
+    <footer id="content-nav">
+        <div class="footer-left">
+            <button id="toggle-terminal" class="nav-button">Toggle Terminal</button>
+        </div>
+        <div class="footer-right">
+            <button class="content-nav-arrow disabled" id="content-nav-back">previous</button>
+            <button class="content-nav-arrow disabled" id="content-nav-forward">next</button>
+        </div>
+    </footer>
+    
     <script type="module" src="js/main.js" defer></script>
 </body>
 </html>

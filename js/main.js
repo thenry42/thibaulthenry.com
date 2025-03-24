@@ -3,6 +3,7 @@ import { initializeNavigation, navNext, navPrev, runCommand } from './components
 import { initializeViewport } from './components/viewport.js';
 import { initHackEffect } from './components/hackEffect.js';
 import { initCommandHistory } from './components/commandHistory.js';
+import { initializeToggleTerminal } from './components/toggleTerminal.js';
 import { initializeProjects } from './components/projects.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeViewport();
     initHackEffect();
     initCommandHistory();
+    initializeToggleTerminal(); // Initialize the toggle terminal functionality
     
     // Initialize projects filtering when viewing projects
     document.getElementById('next-nav').addEventListener('click', checkForProjects);
