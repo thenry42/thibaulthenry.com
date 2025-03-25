@@ -1,0 +1,197 @@
+/* Skills page styling */
+.skills-container {
+    color: green;
+    width: 100%;
+    max-width: 100%;
+}
+
+.skills-header {
+    padding-bottom: 15px;
+}
+
+.skills-header h1 {
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+    margin: 0;
+    font-size: 2rem;
+    color: #7cb7ff;
+}
+
+.skills-intro {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.skills-section {
+    margin-bottom: 40px;
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: rgba(0, 128, 0, 0.05);
+}
+
+.skills-section h2 {
+    font-size: 22px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    border: 1px solid green;
+    border-radius: 5px;
+    padding: 15px;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: green;
+    opacity: 0.7;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+}
+
+.skill-card h3 {
+    color: green;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.skill-level {
+    height: 10px;
+    background-color: rgba(0, 128, 0, 0.2);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 128, 0, 0.5);
+}
+
+.skill-bar {
+    height: 100%;
+    background-color: green;
+    border-radius: 5px;
+    position: relative;
+    animation: skill-fill 1.5s ease-out forwards;
+}
+
+.skill-description {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Terminal-style blinking effect for skill bars */
+@keyframes skill-fill {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: attr(data-level);
+    }
+}
+
+/* Blinking cursor effect when hovering skill cards */
+.skill-card:hover::after {
+    content: '_';
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    color: green;
+    font-weight: bold;
+    animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-section {
+        padding: 15px;
+    }
+    
+    .skill-card {
+        padding: 12px;
+    }
+}
+
+/* Make sure skill bars display correctly on all devices */
+@media (max-width: 480px) {
+    .skill-level {
+        height: 8px;
+    }
+    
+    .skills-header h1 {
+        font-size: 24px;
+    }
+    
+    .skills-section h2 {
+        font-size: 20px;
+    }
+    
+    .skill-card h3 {
+        font-size: 18px;
+    }
+}
+
+/* Make skill cards copyable */
+.skill-card {
+    position: relative;
+}
+
+.skill-card:active {
+    background-color: rgba(0, 128, 0, 0.2);
+}
+
+.skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: green;
+    opacity: 0.7;
+}
+
+.skill-card::after {
+    content: '< Copy >';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.skill-card:hover::after {
+    opacity: 0.7;
+}

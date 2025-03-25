@@ -5,6 +5,7 @@ import { initHackEffect } from './components/hackEffect.js';
 import { initCommandHistory } from './components/commandHistory.js';
 import { initializeToggleTerminal } from './components/toggleTerminal.js';
 import { initializeProjects } from './components/projects.js';
+import { initializeCopyToClipboard } from './components/copyToClipboard.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     window.homeButton = homeButton;
@@ -32,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contentContainer) {
         observer.observe(contentContainer, { childList: true });
     }
+
+    initializeCopyToClipboard();
 });
 
 // Check if projects page is loaded and initialize if it is
