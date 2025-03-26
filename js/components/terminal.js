@@ -2,6 +2,7 @@ import { runHelp } from './help.js';
 import { clearViewport, displayHtmlFile, loadContentWithoutHistory } from './viewport.js';
 import { updateCurrentNavItemDisplay, currentNavItem, navTo } from './navigation.js';
 import { addToHistory, getHistory, getHistoryItem } from './commandHistory.js';
+import { showTerminal } from './toggleTerminal.js';
 
 // Global variables
 let inputField;
@@ -185,6 +186,7 @@ export function processCommand(command)
             displayHtmlFile("welcome.html", "welcome-content");
             break;
         case "help":
+            showTerminal();
             printOutput(runHelp());
             inputField.value = "";
             break;

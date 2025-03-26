@@ -1,3 +1,7 @@
+* {
+    cursor: crosshair;
+}
+
 body {
     background-color: black;
     color: green;

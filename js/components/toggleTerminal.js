@@ -3,28 +3,51 @@
  * Controls showing/hiding the terminal panel and adjusts layout accordingly
  */
 
+const elements = {
+    toggleButton: null,
+    terminalContainer: null,
+    contentWrapper: null
+};
+
 export function initializeToggleTerminal() {
-    const toggleButton = document.getElementById('toggle-terminal');
-    const terminalContainer = document.getElementById('terminal-container');
-    const contentWrapper = document.getElementById('content-wrapper');
+    // Initialize DOM elements
+    elements.toggleButton = document.getElementById('toggle-terminal');
+    elements.terminalContainer = document.getElementById('terminal-container');
+    elements.contentWrapper = document.getElementById('content-wrapper');
     
-    // Set initial button text based on terminal visibility
-    // (Assuming terminal is visible by default)
-    toggleButton.textContent = 'Hide Terminal';
+    // Set initial button text
+    elements.toggleButton.textContent = 'Hide Terminal';
     
-    toggleButton.addEventListener('click', function() {
-        // Toggle visibility and update button text
-        if (terminalContainer.style.display === 'none') {
-            terminalContainer.style.display = '';
-            contentWrapper.style.flex = '4'; // Restore original flex value
-            toggleButton.textContent = 'Hide Terminal';
-        } else {
-            terminalContainer.style.display = 'none';
-            contentWrapper.style.flex = '1'; // Take full width
-            toggleButton.textContent = 'Show Terminal';
-        }
-        
-        // Trigger a window resize event to help any responsive elements adjust
-        window.dispatchEvent(new Event('resize'));
-    });
+    // Add click event listener
+    elements.toggleButton.addEventListener('click', toggleTerminal);
+}
+
+export function toggleTerminal() {
+    if (isTerminalHidden()) {
+        showTerminal();
+    } else {
+        hideTerminal();
+    }
+}
+
+export function showTerminal() {
+    elements.terminalContainer.style.display = '';
+    elements.contentWrapper.style.flex = '4';
+    elements.toggleButton.textContent = 'Hide Terminal';
+    triggerResize();
+}
+
+export function hideTerminal() {
+    elements.terminalContainer.style.display = 'none';
+    elements.contentWrapper.style.flex = '1';
+    elements.toggleButton.textContent = 'Show Terminal';
+    triggerResize();
+}
+
+export function isTerminalHidden() {
+    return elements.terminalContainer.style.display === 'none';
+}
+
+function triggerResize() {
+    window.dispatchEvent(new Event('resize'));
 } 
