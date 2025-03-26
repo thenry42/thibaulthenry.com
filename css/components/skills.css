@@ -112,20 +112,14 @@
     }
 }
 
-/* Blinking cursor effect when hovering skill cards */
+/* Remove the blinking cursor effect */
 .skill-card:hover::after {
-    content: '_';
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    color: green;
-    font-weight: bold;
-    animation: cursor-blink 1s infinite;
+    content: none;  /* This removes the '_' cursor effect */
 }
 
-@keyframes cursor-blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+/* Remove the copy text */
+.skill-card::after {
+    content: none;  /* This removes the '< Copy >' text */
 }
 
 /* Mobile responsiveness */
