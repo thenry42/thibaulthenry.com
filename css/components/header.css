@@ -152,13 +152,15 @@
     #logo-container {
         flex-direction: column;
         align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
     }
     
     #logo {
         order: 1; /* Ensure logo appears at the top */
         width: 100%;
         max-width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: 0;
     }
     
     #logo-right-container {
@@ -196,95 +198,7 @@
         min-width: auto;
         width: auto;
     }
-}
 
-@media (max-width: 768px) {
-    /* Adjustments for mobile */
-    #header-menu {
-        gap: 15px; /* Add space between elements */
-    }
-    
-    #logo {
-        font-size: 8px; /* Make logo smaller on mobile */
-        padding: 10px 15px;
-        width: 100%;
-    }
-    
-    .nav-container {
-        width: auto;
-        justify-content: center;
-        padding: 0 10px;
-    }
-    
-    .nav-tabs {
-        margin: 0 45px;
-    }
-    
-    .nav-group {
-        gap: 10px;
-    }
-    
-    .menu-item {
-        font-size: 18px;
-        padding: 6px 12px;
-    }
-    
-    /* Keep menu-right hidden on mobile */
-    .menu-right {
-        display: none;
-    }
-    
-    /* Ensure both buttons stay hidden on mobile */
-    .menu-item.help-button,
-    .menu-item.github-button {
-        display: none !important;
-    }
-}
-
-@media (max-width: 576px) {
-    .nav-group {
-        flex-direction: row; /* Keep items in a row */
-        align-items: center;
-        justify-content: center;
-    }
-    
-    #logo {
-        font-size: 5px; /* Make logo even smaller on very small screens */
-        padding: 8px 12px;
-        width: 100%;
-    }
-    
-    /* Keep menu-right in line with menu-left */
-    .menu-right {
-        flex-direction: row;
-        gap: 10px;
-        align-items: center;
-    }
-    
-    .nav-arrow {
-        top: auto;
-        transform: none;
-    }
-    
-    /* Stack header elements when very narrow */
-    @media (max-width: 480px) {
-        #header-menu {
-            flex-direction: column;
-        }
-        
-        .menu-right, .menu-left {
-            width: 100%;
-            justify-content: center;
-            margin: 5px 0;
-        }
-        
-        .menu-right {
-            margin-top: 10px;
-        }
-    }
-}
-
-@media (max-width: 400px) {
     .nav-tabs {
         margin: 0 15px;
     }
@@ -294,21 +208,10 @@
         height: 30px;
         font-size: 14px;
     }
-    
+
     .menu-item {
         font-size: 16px;
         padding: 5px 10px;
-    }
-    
-    #logo {
-        font-size: 3.5px; /* Smallest size for very small screens */
-        width: 100%;
-        margin-bottom: 0;
-    }
-
-    #logo-container {
-        gap: 10px;
-        margin-bottom: 10px;
     }
 }
 
