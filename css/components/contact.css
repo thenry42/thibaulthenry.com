@@ -35,10 +35,12 @@
 .contact-table tr {
     line-height: 2;
     transition: background-color 0.2s;
+    cursor: pointer !important;
 }
 
 .contact-table tr:hover {
     background-color: rgba(0, 128, 0, 0.1);
+    cursor: pointer !important;
 }
 
 .contact-label {
@@ -64,7 +66,7 @@
     text-align: left;
     vertical-align: middle;
     position: relative;
-    cursor: default;
+    cursor: pointer !important;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -76,7 +78,7 @@
     padding: 2px 4px;
     position: relative;
     z-index: 1;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 .contact-value-nocopy a:hover {
@@ -84,6 +86,7 @@
     background-color: green;
     border-color: transparent;
     text-decoration: none !important;
+    cursor: pointer !important;
 }
 
 /* Show copy hint tooltip on hover - adjusted position */
@@ -143,7 +146,7 @@
     opacity: 1;
 }
 
-/* Link styling */
+/* Link styling with improved cursor handling */
 .contact-value a {
     color: green;
     text-decoration: none;
@@ -152,7 +155,7 @@
     padding: 2px 4px;
     position: relative;
     z-index: 1;
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 .contact-value a:hover {
@@ -160,6 +163,21 @@
     background-color: green;
     border-color: transparent;
     text-decoration: none !important;
+    cursor: pointer !important;
+}
+
+/* Override default cursor for link elements and their children */
+.contact-value a, 
+.contact-value a *, 
+.contact-value-nocopy a, 
+.contact-value-nocopy a * {
+    cursor: pointer !important;
+}
+
+/* Force pointer cursor even with global styles */
+html body .contact-container .contact-table a,
+html body .contact-container .contact-table a * {
+    cursor: pointer !important;
 }
 
 /* For responsive design */

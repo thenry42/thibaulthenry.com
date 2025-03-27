@@ -1,13 +1,19 @@
 // Projects filtering functionality
-export function initializeProjects() {
+export function initializeProjects(retryCount = 0, maxRetries = 10) {
+    // Check if we've exceeded maximum retries
+    if (retryCount >= maxRetries) {
+        console.warn(`Failed to initialize projects after ${maxRetries} attempts`);
+        return;
+    }
+    
     // Wait for content to be loaded
     setTimeout(() => {
         const categoryBtns = document.querySelectorAll('.category-btn');
         const projectCards = document.querySelectorAll('.project-card');
         
         if (!categoryBtns.length || !projectCards.length) {
-            console.log('Projects elements not found, retry in 100ms');
-            setTimeout(initializeProjects, 100);
+            console.log(`Projects elements not found, retry in 100ms (attempt ${retryCount + 1}/${maxRetries})`);
+            setTimeout(() => initializeProjects(retryCount + 1, maxRetries), 100);
             return;
         }
         
@@ -46,5 +52,5 @@ export function initializeProjects() {
         });
         
         console.log('Projects filtering initialized');
-    }, 100); // Small delay to ensure content is loaded
+    }, 50); // Reduced initial timeout for better performance
 }
