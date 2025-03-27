@@ -106,6 +106,7 @@
     display: inline-flex; /* Show by default */
 }
 
+/* Progressive hide buttons when space is limited */
 @media (max-width: 1120px) {
     /* Hide help button first when space is limited */
     .menu-item.help-button {
@@ -142,95 +143,64 @@
     .menu-item.help-button {
         display: none !important;
     }
+
+    /* Make sure github button stays hidden on tablet and mobile */
+    .menu-item.github-button {
+        display: none !important;
+    }
     
     #logo-container {
         flex-direction: column;
         align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
     }
     
     #logo {
         order: 1; /* Ensure logo appears at the top */
         width: 100%;
+        max-width: 100%;
+        margin-bottom: 0;
     }
     
     #logo-right-container {
         width: 100%;
         order: 2;
         padding-inline: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     
     #header-menu {
-        flex-direction: column;
+        flex-direction: row; /* Keep elements on same level */
+        justify-content: center; /* Center the elements */
+        align-items: center;
+        width: 100%;
     }
     
     .menu-right {
-        order: 3; /* Push to bottom */
-        width: 100%;
-        justify-content: center;
-        margin-top: 15px;
+        order: 2; /* Keep next to menu-left */
+        margin-top: 0; /* Remove top margin */
+        margin-left: 15px; /* Add some space between menu sections */
     }
     
     .menu-left {
-        order: 2; /* Place below logo */
-        width: 100%;
+        order: 1; /* Keep before menu-right */
         margin-right: 0;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 768px) {
-    .menu-right {
-        display: none; /* Hide right menu completely on mobile */
+        flex: 0 0 auto; /* Don't grow or shrink */
+        min-width: auto; /* Allow natural width */
     }
     
-    #logo {
-        font-size: 8px; /* Make logo smaller on mobile */
-        padding: 10px 15px;
-        width: 100%;
-    }
-    
+    /* Ensure nav container is properly sized */
     .nav-container {
-        width: 100%;
-        justify-content: center;
-        padding: 0 10px;
+        min-width: auto;
+        width: auto;
     }
-    
-    .nav-tabs {
-        margin: 0 45px;
-    }
-    
-    /* Center the footer navigation when terminal toggle is hidden */
-    .footer-left {
-        display: none;
-    }
-    
-    .footer-right {
-        width: 100%;
-        justify-content: center;
-    }
-}
 
-@media (max-width: 576px) {
-    .nav-group {
-        flex-direction: column;
-        align-items: center;
-        padding-top: 5px;
-    }
-    
     .nav-tabs {
-        height: 90px; /* Increased height for stacked items */
-    }
-    
-    #logo {
-        font-size: 7px; /* Make logo even smaller on very small screens */
-        padding: 8px 12px;
-        width: 100%;
-    }
-}
-
-@media (max-width: 400px) {
-    .nav-tabs {
-        margin: 0 35px;
+        margin: 0 15px;
     }
     
     .nav-arrow {
@@ -238,15 +208,10 @@
         height: 30px;
         font-size: 14px;
     }
-    
+
     .menu-item {
         font-size: 16px;
         padding: 5px 10px;
-    }
-    
-    #logo {
-        font-size: 6px; /* Smallest size for very small screens */
-        width: 100%;
     }
 }
 
