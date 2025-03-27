@@ -62,47 +62,6 @@
     font-size: 1.2rem;
 }
 
-/* Contact page styling */
-.contact-container {
-    font-family: monospace;
-    margin: 20px 0;
-}
-
-.contact-table {
-    border-spacing: 0;
-    border-collapse: separate;
-    width: 100%;
-}
-
-.contact-table tr {
-    line-height: 1.8;
-}
-
-.contact-label {
-    color: green;
-    text-align: right;
-    padding-right: 15px;
-    white-space: nowrap;
-    vertical-align: top;
-    width: 140px;
-}
-
-.contact-value {
-    text-align: left;
-}
-
-.contact-value a {
-    color: #7cb7ff;
-    text-decoration: none;
-    border-bottom: 1px dashed #7cb7ff;
-    transition: color 0.3s, border-color 0.3s;
-}
-
-.contact-value a:hover {
-    color: #5da8ff;
-    border-color: #5da8ff;
-}
-
 /* For responsive design */
 @media (max-width: 768px) {
     .welcome-header {
@@ -117,27 +76,6 @@
     
     .signature {
         text-align: left;
-    }
-}
-
-@media (max-width: 576px) {
-    .contact-table {
-        display: block;
-    }
-    
-    .contact-table tr {
-        display: block;
-        margin-bottom: 15px;
-    }
-    
-    .contact-label, .contact-value {
-        display: block;
-        width: 100%;
-        text-align: left;
-    }
-    
-    .contact-label {
-        margin-bottom: 5px;
     }
 }
 

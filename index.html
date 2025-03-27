@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="logo-container">
-        <pre id="logo">
+        <pre id="logo" onclick="window.homeButton()" style="cursor: pointer;">
 ████████╗██╗  ██╗██╗██████╗  █████╗ ██╗   ██╗██╗  ████████╗    ██╗  ██╗███████╗███╗   ██╗██████╗ ██╗   ██╗
 ╚══██╔══╝██║  ██║██║██╔══██╗██╔══██╗██║   ██║██║  ╚══██╔══╝    ██║  ██║██╔════╝████╗  ██║██╔══██╗╚██╗ ██╔╝
    ██║   ███████║██║██████╔╝███████║██║   ██║██║     ██║       ███████║█████╗  ██╔██╗ ██║██████╔╝ ╚████╔╝ 
@@ -28,15 +28,15 @@
                         <button class="nav-arrow" id="next-nav">▶</button>
                     </div>
                 </div>
-                
                 <!-- Right section with permanent buttons -->
                 <div class="menu-right">
-                    <a href="https://github.com/thenry42" target="_blank" class="menu-item permanent-item">github</a>
-                    <a href="javascript:void(0)" class="menu-item permanent-item" onclick="document.getElementById('command-input').value='help'; document.getElementById('command-input').dispatchEvent(new KeyboardEvent('keypress', {'key': 'Enter'}));">help</a>
+                    <a href="https://github.com/thenry42" target="_blank" class="menu-item permanent-item github-button">github</a>
+                    <a href="javascript:void(0)" class="menu-item permanent-item help-button" onclick="window.simulateCommand('help')">help</a>
                 </div>
             </div>
         </div>
     </div>
+
     <div id="main-container">
         <div id="terminal-container">
             <div id="terminal">
@@ -47,10 +47,24 @@
                 </div>
             </div>
         </div>
-        <div id="content-container">
-            <!-- Content will be displayed here -->
+        <div id="content-wrapper">
+            <div id="content-container">
+                <!-- Content will be displayed here -->
+            </div>
         </div>
     </div>
+    
+    <!-- Convert to full-width footer navigation -->
+    <footer id="content-nav">
+        <div class="footer-left">
+            <button id="toggle-terminal" class="nav-button">Toggle Terminal</button>
+        </div>
+        <div class="footer-right">
+            <button class="content-nav-arrow disabled" id="content-nav-back">previous</button>
+            <button class="content-nav-arrow disabled" id="content-nav-forward">next</button>
+        </div>
+    </footer>
+    
     <script type="module" src="js/main.js" defer></script>
 </body>
 </html>

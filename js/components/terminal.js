@@ -1,12 +1,15 @@
 import { runHelp } from './help.js';
-import { clearViewport, displayHtmlFile } from './viewport.js';
+import { clearViewport, displayHtmlFile, loadContentWithoutHistory } from './viewport.js';
 import { updateCurrentNavItemDisplay, currentNavItem, navTo } from './navigation.js';
+import { addToHistory, getHistory, getHistoryItem } from './commandHistory.js';
+import { showTerminal } from './toggleTerminal.js';
 
 // Global variables
 let inputField;
 let outputDiv;
 let terminal;
 let isSelecting = false;
+let historyPosition = -1; // Current position in command history when navigating
 window.processCommand = processCommand;
 
 export function initializeTerminal()
@@ -63,6 +66,58 @@ export function initializeTerminal()
         }
     });
 
+    // Handle keydown for special keys like up/down arrows
+    inputField.addEventListener("keydown", function(event) {
+        const history = getHistory();
+        
+        // Up arrow - navigate back in history
+        if (event.key === "ArrowUp") {
+            event.preventDefault();
+            
+            // If we're already at the last history item, do nothing
+            if (historyPosition >= history.length - 1) {
+                return;
+            }
+            
+            // Move up in history
+            historyPosition++;
+            inputField.value = getHistoryItem(historyPosition) || "";
+            
+            // Move cursor to end of input
+            setTimeout(() => {
+                inputField.selectionStart = inputField.selectionEnd = inputField.value.length;
+            }, 0);
+        }
+        
+        // Down arrow - navigate forward in history
+        else if (event.key === "ArrowDown") {
+            event.preventDefault();
+            
+            // If we're at the beginning of history or before, clear input
+            if (historyPosition <= 0) {
+                historyPosition = -1;
+                inputField.value = "";
+                return;
+            }
+            
+            // Move down in history
+            historyPosition--;
+            inputField.value = getHistoryItem(historyPosition) || "";
+            
+            // Move cursor to end of input
+            setTimeout(() => {
+                inputField.selectionStart = inputField.selectionEnd = inputField.value.length;
+            }, 0);
+        }
+        
+        // Escape - clear input
+        else if (event.key === "Escape") {
+            event.preventDefault();
+            inputField.value = "";
+            historyPosition = -1;
+        }
+    });
+
     inputField.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
@@ -70,11 +125,27 @@ export function initializeTerminal()
             if (command) {
                 printOutput("$> " + command);
                 processCommand(command);
+                
+                // Add to history and reset history position
+                addToHistory(command);
+                historyPosition = -1;
             }
             inputField.value = "";
             focusInput(); // Ensure input stays focused after entering command
         }
     });
+    
+    // Add a history command
+    window.commandHistory = function() {
+        printOutput("Command History:");
+        const history = getHistory();
+        if (history.length === 0) {
+            printOutput("No commands in history.");
+        } else {
+            printOutput(history.map((cmd, i) => `${i+1}. ${cmd}`).join('\n'));
+        }
+        return "Command history displayed.";
+    };
 }
 
 export function printOutput(text) {
@@ -93,6 +164,20 @@ export function printOutput(text) {
     terminal.scrollTop = terminal.scrollHeight;
 }
 
+// Function to simulate typing a command and then executing it
+export function simulateCommand(command)
+{
+    if (inputField) {
+        inputField.value = command;
+    }
+    printOutput("$> " + command);
+    processCommand(command);
+    
+    // Add simulated commands to history too
+    addToHistory(command);
+    historyPosition = -1;
+}
+
 export function processCommand(command)
 {
     switch (command.toLowerCase()) {
@@ -101,16 +186,13 @@ export function processCommand(command)
             displayHtmlFile("welcome.html", "welcome-content");
             break;
         case "help":
+            showTerminal();
             printOutput(runHelp());
             inputField.value = "";
             break;
         case "status":
             printOutput("Displaying status...");
             displayHtmlFile("status.html", "status-content");
-            break;
-        case "resume":
-            printOutput("Displaying resume...");
-            displayHtmlFile("resume.html", "resume-content");
             break;
         case "projects":
             printOutput("Displaying projects...");
@@ -136,6 +218,9 @@ export function processCommand(command)
             printOutput("Displaying contact information...");
             displayHtmlFile("contact.html", "contact-content");
             break;
+        case "history":
+            window.commandHistory();
+            break;
         case "clear":
             outputDiv.innerHTML = "";
             inputField.value = "";
@@ -144,5 +229,14 @@ export function processCommand(command)
             printOutput("Error: command not found. Type 'help' for a list of available commands.");
             inputField.value = "";
     }
-    navTo(command);
+    if (command.toLowerCase() !== "clear" && command.toLowerCase() !== "help") {
+        navTo(command);
+    }
+}
+
+export function homeButton()
+{
+    loadContentWithoutHistory("welcome.html", "welcome-content");
+    processCommand("clear");
+    simulateCommand("help");
 }

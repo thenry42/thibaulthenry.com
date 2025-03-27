@@ -8,13 +8,12 @@ window.navPrev = navPrev;
 export const navElements = [
     { index: 0, title: 'welcome' },
     { index: 1, title: 'status' },
-    { index: 2, title: 'resume' },
-    { index: 3, title: 'projects' },
-    { index: 4, title: 'skills' },
-    { index: 5, title: 'experiences' },
-    { index: 6, title: 'education' },
-    { index: 7, title: 'about' },
-    { index: 8, title: 'contact' }
+    { index: 2, title: 'projects' },
+    { index: 3, title: 'skills' },
+    { index: 4, title: 'experiences' },
+    { index: 5, title: 'education' },
+    { index: 6, title: 'about' },
+    { index: 7, title: 'contact' }
 ];
 
 // Add this new function to set up the menu items
@@ -88,7 +87,7 @@ export function navNext() {
     currentNavItem = (currentNavItem + 1) % navElements.length;
     
     updateCurrentNavItemDisplay();
-    displayCurrentContent();
+    //displayCurrentContent();
     runCommand(navElements[currentNavItem].title);
 }
 
@@ -97,7 +96,7 @@ export function navPrev() {
     currentNavItem = (currentNavItem - 1 + navElements.length) % navElements.length;
     
     updateCurrentNavItemDisplay();
-    displayCurrentContent();
+    //displayCurrentContent();
     runCommand(navElements[currentNavItem].title);
 }
 

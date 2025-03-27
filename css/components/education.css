@@ -1,43 +1,63 @@
-/* Education section styling */
+/* Education section styling to match experiences */
 .education-section {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+    width: 100%;
+    max-width: 100%;
 }
 
+/* Add a header similar to experiences */
+.education-header {
+    margin-bottom: 40px;
+}
+
+.education-header h1 {
+    color: #7cb7ff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.education-intro {
+    font-size: 18px;
+    line-height: 1.5;
+    color: green;
+}
+
+/* Style education items like experience cards */
 .education-item {
     position: relative;
-    padding-left: 20px;
-}
-
-/* Remove the border-left from the education-item */
-/* Instead, we'll add a pseudo-element that starts below the header */
-.education-item::after {
-    content: '';
-    position: absolute;
-    top: 7px; /* Position below the header */
-    bottom: 0px; /* Extend to the gap between items */
-    left: 0;
-    width: 3px;
-    background-color: green;
-}
-
-/* Remove bottom connection for the last item */
-.education-item:last-child::after {
-    bottom: 0;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid green;
+    border-radius: 5px;
+    background-color: rgba(0, 128, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+    
+    contain: layout paint style;
+    height: auto;
+    will-change: transform;
 }
 
 .education-item::before {
     content: '';
     position: absolute;
-    width: 12px;
-    height: 12px;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
     background-color: green;
-    border-radius: 50%;
-    left: -4px;
-    top: 7px;
+    opacity: 0.7;
 }
 
+/* Remove the old vertical timeline styling */
+.education-item::after {
+    content: none;
+}
+
+/* Style header to match experience cards */
 .edu-header {
     display: flex;
     justify-content: space-between;
@@ -47,41 +67,95 @@
 }
 
 .school-name {
-    margin: 0;
     color: #7cb7ff;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 5px;
 }
 
 .edu-date {
-    color: #a0a0a0;
-    font-style: italic;
+    color: #7cb7ff;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .edu-description {
-    margin: 8px 0;
+    color: green;
+    line-height: 1.5;
+    margin: 10px 0;
 }
 
 .edu-highlights {
     margin: 10px 0;
     padding-left: 20px;
+    color: green;
 }
 
 .edu-highlights li {
     margin-bottom: 5px;
+    line-height: 1.5;
 }
 
-/* Responsive adjustments */
+/* Style links to match the rest of the site */
+.education-item a {
+    color: green;
+    text-decoration: none;
+    border-bottom: 1px solid green;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 2px 4px;
+    cursor: pointer !important;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+    
+    white-space: nowrap;
+}
+
+.education-item a:hover {
+    color: black;
+    background-color: green;
+    border-color: transparent;
+    cursor: pointer !important;
+    text-decoration: none;
+}
+
+/* Add specific override to counter any global cursor settings */
+.education-item a * {
+    cursor: pointer !important;
+}
+
+/* Add hover effect to match experiences */
+.education-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    z-index: 1;
+}
+
+/* Active state effect */
+.education-item:active {
+    background-color: rgba(0, 128, 0, 0.2);
+    cursor: pointer;
+}
+
+/* For longer links that need to wrap */
+.education-item p a {
+    white-space: normal;
+}
+
+/* Mobile responsiveness */
 @media (max-width: 768px) {
+    .education-section {
+        padding: 10px;
+    }
+
+    .education-item {
+        padding: 15px;
+    }
+
     .edu-header {
         flex-direction: column;
         align-items: flex-start;
-    }
-    
-    .edu-date {
-        margin-top: 5px;
-    }
-    
-    /* Adjust the vertical line position for mobile */
-    .education-item::after {
-        top: 50px; /* Adjust based on wrapping header height */
+        gap: 5px;
     }
 }
