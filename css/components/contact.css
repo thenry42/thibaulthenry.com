@@ -60,6 +60,32 @@
     transition: background-color 0.3s, color 0.3s;
 }
 
+.contact-value-nocopy {
+    text-align: left;
+    vertical-align: middle;
+    position: relative;
+    cursor: default;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-value-nocopy a {
+    color: green;
+    text-decoration: none;
+    border-bottom: 1px dashed green;
+    transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+    padding: 2px 4px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.contact-value-nocopy a:hover {
+    color: black;
+    background-color: green;
+    border-color: transparent;
+    text-decoration: none !important;
+}
+
 /* Show copy hint tooltip on hover - adjusted position */
 .contact-value:hover:not(.copying)::before {
     content: "Click to copy";
