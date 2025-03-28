@@ -192,6 +192,7 @@ header {
     justify-content: center;
     max-height: 100%;
     scrollbar-width: none;
+    min-width: 900px;
 }
 
 /* Update tab-pane styles */

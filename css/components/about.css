@@ -5,6 +5,9 @@
     border-radius: 5px;
     max-height: 100%;
     background-color: var(--pastel-02);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
 }
 
 .about-container h1 {
@@ -12,7 +15,42 @@
     font-weight: 600;
     font-size: 2rem;
     color: var(--text-color);
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: var(--text-color);
+    max-width: 800px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 1.5rem;
+    }
+
+    .about-container h1 {
+        font-size: 1.75rem;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+    }
+
+    .about-content ul li {
+        font-size: 1rem;
+    }
 }
 
 
