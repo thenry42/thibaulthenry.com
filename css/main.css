@@ -85,19 +85,19 @@ header {
 }
 
 /* Media queries in correct order - from largest to smallest */
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1300px) {
     .logo h1::after {
         content: "Thibault H.";
     }
 }
 
-@media screen and (max-width: 1210px) {
+@media screen and (max-width: 1250px) {
     .logo h1::after {
         content: "Tibo";
     }
 }
 
-@media screen and (max-width: 1111px) {
+@media screen and (max-width: 1160px) {
     .logo h1::after {
         content: "";
     }
@@ -189,7 +189,7 @@ header {
     justify-content: center;
     max-height: 100%;
     scrollbar-width: none;
-    min-width: 900px;
+    min-width: 1000px;
     box-sizing: border-box;
 }
 
