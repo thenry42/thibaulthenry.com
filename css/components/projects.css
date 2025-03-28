@@ -30,10 +30,6 @@
     border: 1px solid var(--pastel-00);
 }
 
-.project-card:last-child {
-    margin-bottom: 5em;
-}
-
 .project-header {
     display: flex;
     justify-content: space-between;
