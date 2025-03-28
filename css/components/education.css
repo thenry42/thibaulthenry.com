@@ -1,0 +1,135 @@
+/* Education Container */
+.education-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    max-height: 100%;
+    background-color: var(--pastel-02);
+}
+
+/* Education Header */
+.education-header {
+    margin-bottom: 2rem;
+}
+
+.education-header h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.education-intro {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    color: var(--text-color);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+/* Education Items */
+.education-item {
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--pastel-00);
+}
+
+.education-item:last-child {
+    margin-bottom: 5em;
+}
+
+/* Education Header */
+.edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.school-name {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.edu-date {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid var(--pastel-00);
+    border-radius: 5px;
+}
+
+/* Education Description */
+.edu-description {
+    color: var(--text-color);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+.edu-description i {
+    font-style: italic;
+}
+
+/* Education Highlights */
+.edu-highlights {
+    list-style-type: none;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.edu-highlights li {
+    position: relative;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+}
+
+.edu-highlights li::before {
+    content: "•";
+    position: absolute;
+    left: -1rem;
+    color: var(--pastel-00);
+}
+
+/* Links */
+.education-item a {
+    color: var(--text-color);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.education-item a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .education-container {
+        padding: 1rem;
+    }
+
+    .edu-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .edu-date {
+        margin-top: 0.5rem;
+    }
+
+    .school-name {
+        font-size: 1.1rem;
+    }
+}

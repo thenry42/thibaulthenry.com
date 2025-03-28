@@ -1,5 +1,11 @@
 @import "components/font.css";
-@import "components/terminal.css";
+@import "components/welcome.css";
+@import "components/projects.css";
+@import "components/education.css";
+@import "components/experiences.css";
+@import "components/skills.css";
+@import "components/about.css";
+@import "components/contact.css";
 
 /* Import Quicksand for the overall clean, zen look */
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
@@ -18,6 +24,7 @@ html {
     height: 100%;
     max-height: 100%;
     width: 100%;
+    max-width: 100%;
     margin: 0;
     padding: 0;
 }
@@ -25,6 +32,7 @@ html {
 /* Ensure body and html take full height */
 body {
     height: 100%;
+    width: 100%;
     margin: 0;
     padding: 1.5em;
     box-sizing: border-box;
@@ -35,6 +43,7 @@ body {
     flex-direction: column;
     overflow: hidden; /* Prevent scrolling */
     max-height: inherit;
+    max-width: inherit;
 }
 
 header {
@@ -119,6 +128,7 @@ header {
     position: relative; /* For z-index to work */
     z-index: 1; /* Keep tabs below header */
     max-height: inherit;
+    max-width: inherit;
 }
 
 /* Tabs row */
@@ -134,7 +144,7 @@ header {
 .tab {
     position: relative;
     padding: 1rem 2rem;
-    background: var(--pastel-02);
+    background: var(--pastel-01);
     cursor: pointer;
     text-align: center;
     font-family: 'Quicksand', sans-serif;
@@ -155,13 +165,11 @@ header {
 /* Hover effect with offset */
 .tab:hover {
     background: var(--pastel-00);
-    z-index: 0; /* Bring hovered tab forward */
 }
 
 /* Active tab */
 .tab.active {
-    background: var(--pastel-01);
-    z-index: 4; /* Active tab should be above hovered tabs */
+    background: var(--pastel-02);
     border-radius: 1em 1em 0 0;
 }
 
@@ -172,27 +180,65 @@ header {
 
 /* Tab content */
 .tab-content {
-    border: 1px solid var(--pastel-01);
-    border-radius: 0 1em 1em 1em; /* Round all corners except top-left */
+    height: 100%;
+    border: 1px solid var(--pastel-02);
+    border-radius: 1em 1em 1em 1em;
     padding: 2rem;
-    background: var(--pastel-01);
+    background: var(--pastel-02);
     flex: 1;
-    position: relative; /* For proper z-index stacking */
+    position: relative;
     overflow: auto;
-    min-width: 900px;
-    max-height: inherit;
+    display: flex;
+    justify-content: center;
+    max-height: 100%;
+    scrollbar-width: none;
 }
 
-/* Ensure tab panes fill the content area */
+/* Update tab-pane styles */
 .tab-pane {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    display: none; /* Hide by default */
     height: 100%;
+    width: 800px;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 .tab-pane.active {
-    display: block;
-    opacity: 1;
+    display: block; /* Show when active */
     height: 100%;
+    width: 800px;
+    margin: 0 auto;
+    max-height: inherit;
+    max-width: 100%;
+}
+
+.first-tab-filler {
+    height: 50px;
+    width: 50px;
+    background: var(--pastel-02);
+    position: absolute;
+    z-index: -1;
+    top: 50px;
+    left: 0;
+    transition: background-color 0.3s ease;
+}
+
+/* When any non-welcome tab is active */
+.tabs-container:has(.tab[data-tab]:not([data-tab="welcome"]).active) .first-tab-filler {
+    background: var(--pastel-01);
+}
+
+/* When welcome tab is hovered but not active */
+.tabs-container:has(.tab[data-tab="welcome"]:not(.active):hover) .first-tab-filler {
+    background: var(--pastel-00);
+}
+
+/* When welcome tab is active */
+.tabs-container:has(.tab[data-tab="welcome"].active) .first-tab-filler {
+    background: var(--pastel-02);
+}
+
+/* When welcome tab is active and hovered */
+.tabs-container:has(.tab[data-tab="welcome"].active:hover) .first-tab-filler {
+    background: var(--pastel-01);
 }

@@ -17,17 +17,38 @@ function initTabs()
             // Get all tab panes
             const tabPanes = document.querySelectorAll('.tab-pane');
             
-            // Remove active class from all tab panes
+            // Hide all tab panes and remove active class
             tabPanes.forEach(pane => {
                 pane.classList.remove('active');
+                pane.style.display = 'none'; // Hide inactive panes
             });
             
-            // Add active class to corresponding tab pane
+            // Show and activate corresponding tab pane
             const activePane = document.querySelector(`.tab-pane[data-tab="${tabId}"]`);
             if (activePane) {
                 activePane.classList.add('active');
+                activePane.style.display = 'block'; // Show active pane
             }
+
+            // Dispatch custom event for tab change
+            const tabChangeEvent = new CustomEvent('tabChanged', {
+                detail: {
+                    tabId: tabId,
+                    isTerminal: tabId === 'terminal'
+                }
+            });
+            document.dispatchEvent(tabChangeEvent);
         });
+    });
+
+    // Initialize all tab panes to be hidden except the active one
+    const allPanes = document.querySelectorAll('.tab-pane');
+    allPanes.forEach(pane => {
+        if (pane.classList.contains('active')) {
+            pane.style.display = 'block';
+        } else {
+            pane.style.display = 'none';
+        }
     });
 }
 
@@ -39,4 +60,10 @@ function switchTab(tabId)
     }
 }
 
-export { initTabs, switchTab };
+// New function to check if a specific tab is active
+function isTabActive(tabId) {
+    const tab = document.querySelector(`.tab[data-tab="${tabId}"]`);
+    return tab && tab.classList.contains('active');
+}
+
+export { initTabs, switchTab, isTabActive };

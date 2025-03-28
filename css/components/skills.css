@@ -1,0 +1,104 @@
+/* Skills Container */
+.skills-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    max-height: 100%;
+    background-color: var(--pastel-02);
+}
+
+/* Skills Header */
+.skills-header {
+    margin-bottom: 2rem;
+}
+
+.skills-header h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.skills-intro {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    color: var(--text-color);
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+/* Skills Section */
+.skills-section {
+    margin-bottom: 2rem;
+}
+
+.skills-section h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Skill Card */
+.skill-card {
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--pastel-00);
+}
+
+.skill-card h3 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+/* Skill Level Bar */
+.skill-level {
+    height: 8px;
+    background-color: var(--pastel-01);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.skill-bar {
+    height: 100%;
+    background-color: var(--pastel-00);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.skill-description {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    color: var(--text-color);
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skills-container {
+        padding: 1rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card {
+        margin-bottom: 1rem;
+    }
+}

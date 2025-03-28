@@ -20,33 +20,651 @@
     <!-- Tab container -->
     <div class="tabs-container">
         <div class="tabs">
-            <div class="tab active" data-tab="terminal">terminal</div>
+            <div class="tab active" data-tab="welcome">welcome</div>
             <div class="tab" data-tab="projects">projects</div>
-            <div class="tab" data-tab="blog">education</div>
-            <div class="tab" data-tab="education">experiences</div>
+            <div class="tab" data-tab="education">education</div>
+            <div class="tab" data-tab="experiences">experiences</div>
             <div class="tab" data-tab="skills">skills</div>
             <div class="tab" data-tab="about">about</div>
             <div class="tab" data-tab="contact">contact</div>
         </div>
         <div class="first-tab-filler"></div>
         <div class="tab-content">
-            <div class="tab-pane active" data-tab="terminal">
-                <div id="terminal-container">
-                    <div id="terminal">
-                        <div id="output"></div>
-                        <div id="input-line">
-                            <span class="prompt">$></span>
-                            <input type="text" id="command-input" autocomplete="off" autofocus>
+
+            <!-- Welcome Tab -->
+            <div class="tab-pane active" data-tab="welcome">
+                <div class="welcome-container">
+                    <h1>Hello there,</h1>
+                </div>
+                <div class="welcome-message">
+                    <p> I'm Thibault, a 26 years old french software engineer student based in Paris.</p>
+                </div>
+            </div>
+
+            <!-- Projects Tab -->
+            <div class="tab-pane" data-tab="projects">
+                <div class="projects-container">
+
+                    <!-- Personal Projects Section -->
+                    <div class="projects-section" id="personal-projects">
+                        <h2>Personal Projects</h2>
+                        
+                        <div class="project-card" data-category="personal">
+                            <div class="project-header">
+                                <h4>This Website!</h4>
+                                <div class="project-links">
+                                    <a href="https://github.com/thenry42/" target="_blank" class="project-link">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Hostinger</span>
+                            </div>
+                            <p class="project-description">
+                                A terminal-style portfolio website built with vanilla JavaScript. Features a fully interactive command-line interface with content history navigation and hack effect text rendering.
+                            </p>
+                        </div>
+
+                        <!-- Add more personal project cards as needed -->
+                        <div class="project-card" data-category="personal">
+                            <div class="project-header">
+                                <h4>Promptly</h4>
+                                <div class="project-links">
+                                    <a href="https://github.com/thenry42/Promptly" target="_blank" class="project-link">GitHub</a>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">Dart</span>
+                                <span class="tech-tag">Flutter</span>
+                                <span class="tech-tag">OpenAI API</span>
+                                <span class="tech-tag">Anthropic API</span>
+                                <span class="tech-tag">Ollama</span>
+                            </div>
+                            <p class="project-description">
+                                A Flutter application that allows you to interact with AI models. It uses the OpenAI and Anthropic APIs to generate text and the Ollama API to run local models.
+                                It's my first Flutter app and I'm still learning the basics. The app can safely save API keys and chat history between sessions. It is nowhere near production ready but I intend on releasing a stable version in the near future for Linux, MacOS and Windows.
+                            </p>
+                        </div>
+                
+                        <div class="project-card" data-category="personal">
+                            <div class="project-header">
+                                <h4>Atelier Dama</h4>
+                                <div class="project-links">
+                                    <a href="https://atelierdama.fr/" target="_blank" class="project-link">Website</a>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Hostinger</span>
+                            </div>
+                            <p class="project-description">
+                                This website is the first job I've done as a 'freelancer'. It's a simple showcase website for a couple of friends that exhibit their craftsmanship.
+                                They make and sell custom made lamps (Luminaires). I was tasked to build the website from scratch following their mockup design for both desktop and mobile.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 42 School Projects Section -->
+                    <div class="projects-section" id="42-projects">
+                        <h2>42 School Projects</h2>
+                        
+                        <div class="project-card" data-category="42">
+                            <div class="project-header">
+                                <h4>ft_transcendence</h4>
+                                <div class="project-links">
+                                    <a href="../assets/subjects/transcendence.en.subject.pdf" target="_blank" class="project-link">Subject</a>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">JavaScript / THREE.js</span>
+                                <span class="tech-tag">Python / Django</span>
+                                <span class="tech-tag">Docker</span>
+                            </div>
+                            <p class="project-description">
+                                Final project at 42 school - A full-stack web application featuring real-time multiplayer Pong game.
+                            </p>
+                            <div class="project-score">
+                                <span class="score">125/100</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card" data-category="42">
+                            <div class="project-header">
+                                <h4>ft_irc</h4>
+                                <div class="project-links">
+                                    <a href="../assets/subjects/irc.en.subject.pdf" target="_blank" class="project-link">Subject</a>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">C++</span>
+                                <span class="tech-tag">Sockets</span>
+                                <span class="tech-tag">IRC Protocol</span>
+                            </div>
+                            <p class="project-description">
+                                Description of the project here.
+                            </p>
+                            <div class="project-score">
+                                <span class="score">125/100</span>
+                            </div>
+                        </div>
+                
+                        <div class="project-card" data-category="42">
+                            <div class="project-header">
+                                <h4>cub3d</h4>
+                                <div class="project-links">
+                                    <a href="../assets/subjects/cub3d.en.subject.pdf" target="_blank" class="project-link">Subject</a>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">C</span>
+                                <span class="tech-tag">Raycasting</span>
+                                <span class="tech-tag">MiniLibX (graphics library)</span>
+                            </div>
+                            <p class="project-description">
+                                Description of the project here.
+                            </p>
+                            <div class="project-score">
+                                <span class="score">110/100</span>
+                            </div>
+                        </div>
+                
+                        <div class="project-card" data-category="42">
+                            <div class="project-header">
+                                <h4>minishell</h4>
+                                <div class="project-links">
+                                    <a href="../assets/subjects/minishell.en.subject.pdf" target="_blank" class="project-link">Subject</a>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">C</span>
+                                <span class="tech-tag">Shell</span>
+                                <span class="tech-tag">Unix</span>
+                            </div>
+                            <p class="project-description">
+                                Description of the project here.
+                            </p>
+                            <div class="project-score">
+                                <span class="score">101/100</span>
+                            </div>
+                        </div>
+                
+                        <div class="project-card" data-category="42">
+                            <div class="project-header">
+                                <h4>Philosophers</h4>
+                                <div class="project-links">
+                                    <a href="../assets/subjects/philo.en.subject.pdf" target="_blank" class="project-link">Subject</a>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">C</span>
+                                <span class="tech-tag">Threads</span>
+                                <span class="tech-tag">Mutexes</span>
+                                <span class="tech-tag">Semaphores</span>
+                            </div>
+                            <p class="project-description">
+                                Description of the project here.
+                            </p>
+                            <div class="project-score">
+                                <span class="score">125/100</span>
+                            </div>
+                        </div>
+                
+                        <div class="project-card" data-category="42">
+                            <div class="project-header">
+                                <h4>push_swap</h4>
+                                <div class="project-links">
+                                    <a href="../assets/subjects/pushswap.en.subject.pdf" target="_blank" class="project-link">Subject</a>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">C</span>
+                                <span class="tech-tag">Data Structures</span>
+                                <span class="tech-tag">Algorithms</span>
+                            </div>
+                            <p class="project-description">
+                                Description of the project here.
+                            </p>
+                            <div class="project-score">
+                                <span class="score">94/100</span>
+                            </div>
+                        </div>
+                
+                        <div class="project-card" data-category="42">
+                            <div class="project-header">
+                                <h4>so_long</h4>
+                                <div class="project-links">
+                                    <a href="../assets/subjects/solong.en.subject.pdf" target="_blank" class="project-link">Subject</a>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">C</span>
+                                <span class="tech-tag">MiniLibX (graphics library)</span>
+                            </div>
+                            <p class="project-description">
+                                Description of the project here.
+                            </p>
+                            <div class="project-score">
+                                <span class="score">100/100</span>
+                            </div>
+                        </div>
+                
+                        <div class="project-card" data-category="42">
+                            <div class="project-header">
+                                <h4>ft_printf</h4>
+                                <div class="project-links">
+                                    <a href="../assets/subjects/printf.en.subject.pdf" target="_blank" class="project-link">Subject</a>
+                                </div>
+                            </div>
+                            <div class="project-tech">
+                                <span class="tech-tag">C</span>
+                            </div>
+                            <p class="project-description">
+                                A simple and simplified printf implementation in C.
+                            </p>
+                            <div class="project-score">
+                                <span class="score">100/100</span>
+                            </div>
+                        </div>
+
+                        <!-- Add more 42 project cards as needed -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-pane" data-tab="education">
+                <div class="education-container">
+                    <div class="education-header">
+                        <h1>Educational Background</h1>
+                        <p class="education-intro">
+                            My educational journey reflects a transition from business to technology, demonstrating my adaptability and passion for learning new skills.
+                        </p>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="edu-header">
+                            <h3 class="school-name">Ecole 42, Paris</h3>
+                            <span class="edu-date">Since 2022</span>
+                        </div>
+                        <p class="edu-description">
+                            Peer-to-peer learning methodology focused on computer programming.
+                        </p>
+                        <a href="https://42.fr/en/homepage/" target="_blank">Learn more about 42</a>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="edu-header">
+                            <h3 class="school-name">Ipag Business School, Paris</h3>
+                            <span class="edu-date">2016 - 2021</span>
+                        </div>
+                        <p class="edu-description">Master degree in corporate finance</p>
+                        <ul class="edu-highlights">
+                            <li>Financial analysis</li>
+                            <li>Investment strategies</li>
+                            <li>Corporate valuation</li>
+                        </ul>
+                        <a href="https://www.ipag.edu/" target="_blank">Learn more about IPAG</a>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="edu-header">
+                            <h3 class="school-name">New Jersey City University, USA</h3>
+                            <span class="edu-date">Spring 2019</span>
+                        </div>
+                        <p class="edu-description">Exchange semester in the United States</p>
+                        <a href="https://www.njcu.edu/" target="_blank">Learn more about NJCU</a>
+                    </div>
+                
+                    <div class="education-item">
+                        <div class="edu-header">
+                            <h3 class="school-name">Notre-Dame des Missions Saint Pierre, Charenton-le-Pont</h3>
+                            <span class="edu-date">2001 - 2016</span>
+                        </div>
+                        <p class="edu-description"> Baccalauréat ES (CGE / High School Diploma)</p>
+                        <p class="edu-description"> <i>I indeed spent 15 years in the same place, seeing the same people. It was both a blessing and a curse. I will most likely keep the friends I made there for the rest of my life but that place really felt like a life sentence at times.</i></p>
+                        <a href="https://www.notredamedesmissions.fr/" target="_blank">Learn more about jail</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experiences Tab -->
+            <div class="tab-pane" data-tab="experiences">
+                <div class="experiences-container">
+                    <div class="experiences-header">
+                        <h1>Professional Experiences</h1>
+                        <p class="experiences-intro">
+                            My professional journey represents a transition from finance to software development, showcasing my adaptability and commitment to continuous growth.
+                        </p>
+                    </div>
+                
+                    <div class="experience-section current">
+                        <h2>Coding Experiences <i>[NULL]</i></h2>
+                        <div class="experience-status">
+                            <div class="status-indicator">
+                                <span class="status-dot"></span>
+                                <span class="status-text">Currently looking for my first coding job!</span>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="experience-section previous">
+                        <h2>Financial & Management Experiences <i>[DEPRECATED]</i></h2>
+                        <div class="timeline">
+                            <div class="experience-card">
+                                <h3>
+                                    Payroll Assistant Intern 
+                                    <span class="experience-date">6 months - 2021</span>
+                                </h3>
+                                <p class="company">QAPA, Paris, France</p>
+                                <p class="experience-description">
+                                    Description of your responsibilities and achievements in this role.
+                                </p>
+                            </div>
+                
+                            <div class="experience-card">
+                                <h3>
+                                    Accounting & Auditing Intern 
+                                    <span class="experience-date">4 months - 2020</span>
+                                </h3>
+                                <p class="company">Cabinet ACTION, Charenton-le-Pont, France</p>
+                                <p class="experience-description">
+                                    Description of your responsibilities and achievements in this role.
+                                </p>
+                            </div>
+                
+                            <div class="experience-card">
+                                <h3>
+                                    Junior Marketing Intern
+                                    <span class="experience-date">6 months - 2018</span>
+                                </h3>
+                                <p class="company">Saleduck, Amsterdam, Netherlands</p>
+                                <p class="experience-description">
+                                    Description of your responsibilities and achievements in this role.
+                                </p>
+                            </div>
+                
+                            <div class="experience-card">
+                                <h3>
+                                    Operation Manager Intern
+                                    <span class="experience-date">2 months - 2018</span>
+                                </h3>
+                                <p class="company">Smartrenting, Paris, France</p>
+                                <p class="experience-description">
+                                    Description of your responsibilities and achievements in this role.
+                                </p>
+                            </div>
+                
+                            <div class="experience-card">
+                                <h3>
+                                    Sales Intern
+                                    <span class="experience-date">2 months - 2016</span>
+                                </h3>
+                                <p class="company">Darty, Charenton-le-Pont, France</p>
+                                <p class="experience-description">
+                                    Description of your responsibilities and achievements in this role.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane" data-tab="projects">Projects content here</div>
-            <div class="tab-pane" data-tab="blog">Education content here</div>
-            <div class="tab-pane" data-tab="education">Experiences content here</div>
-            <div class="tab-pane" data-tab="skills">Skills content here</div>
-            <div class="tab-pane" data-tab="about">About content here</div>
-            <div class="tab-pane" data-tab="contact">Contact content here</div>
+
+            <!-- Skills Tab -->
+            <div class="tab-pane" data-tab="skills">
+                <div class="skills-container">
+                    <div class="skills-header">
+                        <h1>Skills</h1>
+                        <p class="skills-intro">
+                            Here's an overview of my technical skills and proficiencies. I'm constantly learning and expanding my knowledge in various areas of software development.
+                        </p>
+                    </div>
+                
+                    <div class="skills-section">
+                        <h2>Programming Languages</h2>
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <h3>C/C++</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 90%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Strong proficiency in C and C++, with experience in systems programming, memory management, and performance optimization.
+                                </p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h3>Python</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 85%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Experienced in Python for web development, data analysis, and automation. Familiar with frameworks like Django.
+                                </p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h3>JavaScript</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 80%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Proficient in vanilla JavaScript for front-end development, DOM manipulation, and interactive web applications.
+                                </p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h3>Dart</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 70%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Experience with Dart for Flutter application development, including state management and UI design.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="skills-section">
+                        <h2>Web Development</h2>
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <h3>HTML/CSS</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 90%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Strong foundation in semantic HTML and CSS, including responsive design and modern layout techniques.
+                                </p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h3>Django</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 75%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Experience building web applications with Django, including authentication, database models, and REST APIs.
+                                </p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h3>THREE.js</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 65%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Knowledge of 3D graphics programming for the web using THREE.js library.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="skills-section">
+                        <h2>Tools & Technologies</h2>
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <h3>Git & GitHub</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 85%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Proficient in version control with Git, including branching strategies, pull requests, and collaborative workflows.
+                                </p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h3>Docker</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 80%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Experience with containerization using Docker, including multi-container applications with Docker Compose.
+                                </p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h3>Linux/Unix</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 90%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Strong command-line skills and experience with Linux environments, shell scripting, and system administration.
+                                </p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h3>APIs</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 75%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Experience integrating with various APIs, including RESTful services and third-party integrations like OpenAI and Anthropic.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="skills-section">
+                        <h2>Soft Skills</h2>
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <h3>Problem Solving</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 95%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Strong analytical thinking and ability to break down complex problems into manageable components.
+                                </p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h3>Teamwork</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 90%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Experience collaborating in team environments, particularly in the peer-to-peer learning model at 42 School.
+                                </p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h3>Continuous Learning</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 100%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Passionate about staying current with new technologies and continuously improving my skills.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="skills-section">
+                        <h2>Additional Skills & Certifications</h2>
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <h3>French</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 100%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    I am a native French speaker, with excellent written and verbal communication skills, at least I hope so.
+                                </p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h3>English</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 95%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Fluent in English with extensive international experience, including an internship in Amsterdam (Netherlands) and an academic exchange in New Jersey (USA). Achieved near-perfect TOEIC score of 980/990, demonstrating professional-level proficiency.
+                                </p>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <h3>Driving Certifications</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 100%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    Full motorcycle license (2021) and driving license (2024), experienced in both vehicle types, especially motorcycles.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- About Tab -->
+            <div class="tab-pane" data-tab="about">
+                <div class="about-container">
+                    <h1>About</h1>
+                </div>
+            </div>
+
+            <!-- Contact Tab -->
+            <div class="tab-pane" data-tab="contact">
+                <div class="contact-container">
+                    <h1 class="contact-header">Feel free to contact me!</h1>
+                    <table class="contact-table">
+                      <tr>
+                        <td class="contact-label">personal mail:</td>
+                        <td class="contact-value">h_thibault@yahoo.fr</td>
+                      </tr>
+                      <tr>
+                        <td class="contact-label">phone:</td>
+                        <td class="contact-value">+33 6 09 37 57 91</td>
+                      </tr>
+                      <tr>
+                        <td class="contact-label">github:</td>
+                        <td class="contact-value-nocopy"><a href="https://github.com/thenry42" target="_blank">github.com/thenry42</a></td>
+                      </tr>
+                      <tr>
+                        <td class="contact-label">leetcode:</td>
+                        <td class="contact-value-nocopy"><a href="https://leetcode.com/u/thenry42" target="_blank">leetcode.com/thenry42</a></td>
+                      </tr>
+                      <tr>
+                        <td class="contact-label">codewars:</td>
+                        <td class="contact-value-nocopy"><a href="https://www.codewars.com/users/thenry" target="_blank">codewars.com/thenry</a></td>
+                      </tr>
+                      <tr>
+                        <td class="contact-label">codingame:</td>
+                        <td class="contact-value-nocopy"><a href="https://www.codingame.com/profile/508e11b521204ab17dd7134eb17432437457194" target="_blank">codingame/thenry42</a></td>
+                      </tr>
+                      <tr>
+                        <td class="contact-label">linkedin:</td>
+                        <td class="contact-value-nocopy"><a href="https://www.linkedin.com/in/thibaulthenry010101/" target="_blank">linkedin.com/thibaulthenry010101</a></td>
+                      </tr>
+                    </table>
+                  </div>
+            </div>
+
         </div>
     </div>
 

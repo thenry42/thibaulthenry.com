@@ -1,0 +1,124 @@
+/* Projects Container */
+.projects-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    max-height: 100%;
+    background-color: var(--pastel-02);
+}
+
+/* Projects Section */
+.projects-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+.projects-section h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+/* Project Cards */
+.project-card {
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--pastel-00);
+}
+
+.project-card:last-child {
+    margin-bottom: 5em;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.project-header h4 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.project-links a {
+    color: var(--text-color);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-left: 1rem;
+}
+
+/* Project Tech Tags */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tech-tag {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    background-color: var(--pastel-01);
+    padding: 0.25rem 0.75rem;
+    border-radius: 5px;
+    font-size: 0.875rem;
+    color: var(--text-color);
+}
+
+/* Project Description */
+.project-description {
+    color: var(--text-color);
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+/* Project Score */
+.project-score {
+    text-align: right;
+}
+
+.score {
+    border: 1px solid var(--pastel-00);
+    border-radius: 5px;
+    padding: 0.25rem 0.75rem;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    color: var(--pastel-00);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .projects-container {
+        padding: 1rem;
+    }
+
+    .project-categories {
+        flex-wrap: wrap;
+    }
+
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .project-links {
+        margin-top: 0.5rem;
+    }
+
+    .project-links a {
+        margin-left: 0;
+        margin-right: 1rem;
+    }
+}

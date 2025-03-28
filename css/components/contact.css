@@ -1,0 +1,81 @@
+/* Contact Container */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    max-height: 100%;
+    background-color: var(--pastel-02);
+    padding: 2rem;
+}
+
+/* Contact Header */
+.contact-header {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+/* Contact Table */
+.contact-table {
+    border-radius: 8px;
+    border: 1px solid var(--pastel-00);
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-table tr {
+    line-height: 2.5;
+}
+
+.contact-label {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    color: var(--text-color);
+    padding-right: 2rem;
+    white-space: nowrap;
+}
+
+.contact-value,
+.contact-value-nocopy {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    color: var(--text-color);
+}
+
+/* Links in contact table */
+.contact-value-nocopy a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contact-value-nocopy a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        padding: 1rem;
+    }
+
+    .contact-table {
+        padding: 1rem;
+    }
+
+    .contact-table tr {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+
+    .contact-label {
+        padding-right: 0;
+        margin-bottom: 0.25rem;
+    }
+}
