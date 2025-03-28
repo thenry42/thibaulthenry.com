@@ -7,9 +7,6 @@
 @import "components/about.css";
 @import "components/contact.css";
 
-/* Import Quicksand for the overall clean, zen look */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
-
 :root {
     /* Pastel Color Theme */
     --pastel-00: #B5828C;
@@ -34,7 +31,7 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
-    padding: 1.5em;
+    padding: 2.5em;
     box-sizing: border-box;
     color: var(--text-color);
     background: var(--pastel-03);
@@ -193,6 +190,7 @@ header {
     max-height: 100%;
     scrollbar-width: none;
     min-width: 900px;
+    box-sizing: border-box;
 }
 
 /* Update tab-pane styles */
@@ -202,6 +200,7 @@ header {
     width: 800px;
     margin: 0 auto;
     max-width: 100%;
+    box-sizing: border-box;
 }
 
 .tab-pane.active {
@@ -211,6 +210,7 @@ header {
     margin: 0 auto;
     max-height: inherit;
     max-width: 100%;
+    box-sizing: border-box;
 }
 
 .first-tab-filler {
