@@ -1,0 +1,21 @@
+/* Terminal styling */
+.welcome-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    max-height: 100%;
+    background-color: var(--pastel-02);
+}
+
+.welcome-container h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 2em;
+}
+
+.welcome-message {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+}
