@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thibault's Portfolio</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="logo-container">
+        <pre id="logo" onclick="window.homeButton()" style="cursor: pointer;">
+████████╗██╗  ██╗██╗██████╗  █████╗ ██╗   ██╗██╗  ████████╗    ██╗  ██╗███████╗███╗   ██╗██████╗ ██╗   ██╗
+╚══██╔══╝██║  ██║██║██╔══██╗██╔══██╗██║   ██║██║  ╚══██╔══╝    ██║  ██║██╔════╝████╗  ██║██╔══██╗╚██╗ ██╔╝
+   ██║   ███████║██║██████╔╝███████║██║   ██║██║     ██║       ███████║█████╗  ██╔██╗ ██║██████╔╝ ╚████╔╝ 
+   ██║   ██╔══██║██║██╔══██╗██╔══██║██║   ██║██║     ██║       ██╔══██║██╔══╝  ██║╚██╗██║██╔══██╗  ╚██╔╝  
+   ██║   ██║  ██║██║██████╔╝██║  ██║╚██████╔╝███████╗██║       ██║  ██║███████╗██║ ╚████║██║  ██║   ██║   
+   ╚═╝   ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝       ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   
+        </pre>
+        <div id="logo-right-container">
+            <div id="header-menu">
+                <!-- Left section with navigation arrows and changing groups -->
+                <div class="menu-left">
+                    <div class="nav-container">
+                        <button class="nav-arrow" id="prev-nav">◀</button>
+                        <div class="nav-tabs">
+                            <!-- This will be populated by JavaScript when the page loads -->
+                        </div>
+                        <button class="nav-arrow" id="next-nav">▶</button>
+                    </div>
+                </div>
+                <!-- Right section with permanent buttons -->
+                <div class="menu-right">
+                    <a href="https://github.com/thenry42" target="_blank" class="menu-item permanent-item github-button">github</a>
+                    <a href="javascript:void(0)" class="menu-item permanent-item help-button" onclick="window.simulateCommand('help')">help</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-container">
+        <div id="terminal-container">
+            <div id="terminal">
+                <div id="output"></div>
+                <div id="input-line">
+                    <span class="prompt">$></span>
+                    <input type="text" id="command-input" autofocus>
+                </div>
+            </div>
+        </div>
+        <div id="content-wrapper">
+            <div id="content-container">
+                <!-- Content will be displayed here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Convert to full-width footer navigation -->
+    <footer id="content-nav">
+        <div class="footer-left">
+            <button id="toggle-terminal" class="nav-button">Toggle Terminal</button>
+        </div>
+        <div class="footer-right">
+            <button class="content-nav-arrow disabled" id="content-nav-back">previous</button>
+            <button class="content-nav-arrow disabled" id="content-nav-forward">next</button>
+        </div>
+    </footer>
+    
+    <script type="module" src="js/main.js" defer></script>
+</body>
+</html>
