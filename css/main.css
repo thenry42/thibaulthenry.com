@@ -6,6 +6,7 @@
 @import "components/skills.css";
 @import "components/about.css";
 @import "components/contact.css";
+@import "components/theme.css";
 
 :root {
     /* Pastel Color Theme */
@@ -85,19 +86,19 @@ header {
 }
 
 /* Media queries in correct order - from largest to smallest */
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1440px) {
     .logo h1::after {
         content: "Thibault H.";
     }
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1375px) {
     .logo h1::after {
         content: "Tibo";
     }
 }
 
-@media screen and (max-width: 1160px) {
+@media screen and (max-width: 1300px) {
     .logo h1::after {
         content: "";
     }
@@ -190,7 +191,7 @@ header {
     justify-content: center;
     max-height: 100%;
     scrollbar-width: none;
-    min-width: 1000px;
+    min-width: 1100px;
     box-sizing: border-box;
 }
 
