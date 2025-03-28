@@ -71,6 +71,11 @@
     color: var(--text-color);
 }
 
+.tech-tag:hover {
+    background-color: var(--pastel-00);
+    cursor: default;
+}
+
 /* Project Description */
 .project-description {
     color: var(--text-color);
