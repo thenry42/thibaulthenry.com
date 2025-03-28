@@ -7,64 +7,50 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <div id="logo-container">
-        <pre id="logo" onclick="window.homeButton()" style="cursor: pointer;">
-████████╗██╗  ██╗██╗██████╗  █████╗ ██╗   ██╗██╗  ████████╗    ██╗  ██╗███████╗███╗   ██╗██████╗ ██╗   ██╗
-╚══██╔══╝██║  ██║██║██╔══██╗██╔══██╗██║   ██║██║  ╚══██╔══╝    ██║  ██║██╔════╝████╗  ██║██╔══██╗╚██╗ ██╔╝
-   ██║   ███████║██║██████╔╝███████║██║   ██║██║     ██║       ███████║█████╗  ██╔██╗ ██║██████╔╝ ╚████╔╝ 
-   ██║   ██╔══██║██║██╔══██╗██╔══██║██║   ██║██║     ██║       ██╔══██║██╔══╝  ██║╚██╗██║██╔══██╗  ╚██╔╝  
-   ██║   ██║  ██║██║██████╔╝██║  ██║╚██████╔╝███████╗██║       ██║  ██║███████╗██║ ╚████║██║  ██║   ██║   
-   ╚═╝   ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝       ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   
-        </pre>
-        <div id="logo-right-container">
-            <div id="header-menu">
-                <!-- Left section with navigation arrows and changing groups -->
-                <div class="menu-left">
-                    <div class="nav-container">
-                        <button class="nav-arrow" id="prev-nav">◀</button>
-                        <div class="nav-tabs">
-                            <!-- This will be populated by JavaScript when the page loads -->
+    <!-- Updated header with navigation -->
+    <header>
+        <div class="header-container">
+            <!-- Left side - Logo -->
+            <div class="logo">
+                <h1></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Tab container -->
+    <div class="tabs-container">
+        <div class="tabs">
+            <div class="tab active" data-tab="terminal">terminal</div>
+            <div class="tab" data-tab="projects">projects</div>
+            <div class="tab" data-tab="blog">education</div>
+            <div class="tab" data-tab="education">experiences</div>
+            <div class="tab" data-tab="skills">skills</div>
+            <div class="tab" data-tab="about">about</div>
+            <div class="tab" data-tab="contact">contact</div>
+        </div>
+        <div class="first-tab-filler"></div>
+        <div class="tab-content">
+            <div class="tab-pane active" data-tab="terminal">
+                <div id="terminal-container">
+                    <div id="terminal">
+                        <div id="output"></div>
+                        <div id="input-line">
+                            <span class="prompt">$></span>
+                            <input type="text" id="command-input" autocomplete="off" autofocus>
                         </div>
-                        <button class="nav-arrow" id="next-nav">▶</button>
                     </div>
                 </div>
-                <!-- Right section with permanent buttons -->
-                <div class="menu-right">
-                    <a href="https://github.com/thenry42" target="_blank" class="menu-item permanent-item github-button">github</a>
-                    <a href="javascript:void(0)" class="menu-item permanent-item help-button" onclick="window.simulateCommand('help')">help</a>
-                </div>
             </div>
+            <div class="tab-pane" data-tab="projects">Projects content here</div>
+            <div class="tab-pane" data-tab="blog">Education content here</div>
+            <div class="tab-pane" data-tab="education">Experiences content here</div>
+            <div class="tab-pane" data-tab="skills">Skills content here</div>
+            <div class="tab-pane" data-tab="about">About content here</div>
+            <div class="tab-pane" data-tab="contact">Contact content here</div>
         </div>
     </div>
 
-    <div id="main-container">
-        <div id="terminal-container">
-            <div id="terminal">
-                <div id="output"></div>
-                <div id="input-line">
-                    <span class="prompt">$></span>
-                    <input type="text" id="command-input" autofocus>
-                </div>
-            </div>
-        </div>
-        <div id="content-wrapper">
-            <div id="content-container">
-                <!-- Content will be displayed here -->
-            </div>
-        </div>
-    </div>
-    
-    <!-- Convert to full-width footer navigation -->
-    <footer id="content-nav">
-        <div class="footer-left">
-            <button id="toggle-terminal" class="nav-button">Toggle Terminal</button>
-        </div>
-        <div class="footer-right">
-            <button class="content-nav-arrow disabled" id="content-nav-back">previous</button>
-            <button class="content-nav-arrow disabled" id="content-nav-forward">next</button>
-        </div>
-    </footer>
-    
-    <script type="module" src="js/main.js" defer></script>
+    <!-- Import scripts properly -->
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

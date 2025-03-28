@@ -1,48 +1,22 @@
-import { initializeTerminal, homeButton, simulateCommand } from './components/terminal.js';
-import { initializeNavigation, navNext, navPrev, runCommand } from './components/navigation.js';
-import { initializeViewport } from './components/viewport.js';
-import { initHackEffect } from './components/hackEffect.js';
-import { initCommandHistory } from './components/commandHistory.js';
-import { initializeToggleTerminal } from './components/toggleTerminal.js';
-import { initializeProjects } from './components/projects.js';
-import { initializeCopyToClipboard } from './components/copyToClipboard.js';
+import { initTabs } from './components/tab.js';
+import { initializeTerminal, simulateCommand } from './components/terminal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    window.homeButton = homeButton;
-    window.simulateCommand = simulateCommand;
-    window.runCommand = runCommand;
-
+    // Initialize tab switching
+    initTabs();
+    
+    // Initialize terminal
     initializeTerminal();
-    initializeNavigation();
-    initializeViewport();
-    initHackEffect();
-    initCommandHistory();
-    initializeToggleTerminal(); // Initialize the toggle terminal functionality
     
-    // Initialize projects filtering when viewing projects
-    document.getElementById('next-nav').addEventListener('click', checkForProjects);
-    document.getElementById('prev-nav').addEventListener('click', checkForProjects);
-    
-    // Also initialize when clicking on menu items or using terminal commands
-    const observer = new MutationObserver(() => {
-        checkForProjects();
+    // When switching to terminal tab, focus the input
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            if (tab.getAttribute('data-tab') === 'terminal') {
+                document.getElementById('command-input').focus();
+            }
+        });
     });
     
-    // Start observing the content container for changes
-    const contentContainer = document.getElementById('content-container');
-    if (contentContainer) {
-        observer.observe(contentContainer, { childList: true });
-    }
-
-    initializeCopyToClipboard();
+    // Show help command on load
+    simulateCommand('help');
 });
-
-// Check if projects page is loaded and initialize if it is
-function checkForProjects() {
-    setTimeout(() => {
-        if (document.querySelector('.projects-container')) {
-            initializeProjects();
-        }
-    }, 100);
-}
-

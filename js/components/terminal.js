@@ -1,39 +1,55 @@
-import { runHelp } from './help.js';
-import { clearViewport, displayHtmlFile, loadContentWithoutHistory } from './viewport.js';
-import { updateCurrentNavItemDisplay, currentNavItem, navTo } from './navigation.js';
-import { addToHistory, getHistory, getHistoryItem } from './commandHistory.js';
-import { showTerminal } from './toggleTerminal.js';
+/**
+ * Terminal implementation for portfolio website
+ */
+import { switchTab } from './tab.js';
 
-// Global variables
-let inputField;
-let outputDiv;
-let terminal;
+// Available commands and their descriptions
+const COMMANDS = {
+    'help': 'Display available commands',
+    'about': 'Show information about me',
+    'contact': 'Display contact information',
+    'projects': 'List my projects',
+    'skills': 'Show my technical skills',
+    'education': 'Display my educational background',
+    'experiences': 'Show my work experience',
+    'clear': 'Clear the terminal output',
+};
+
 let isSelecting = false;
-let historyPosition = -1; // Current position in command history when navigating
-window.processCommand = processCommand;
+let terminal = null;
+let output = null;
+let commandInput = null;
 
-export function initializeTerminal()
-{
-    inputField = document.getElementById("command-input");
-    outputDiv = document.getElementById("output");
-    terminal = document.getElementById("terminal");
-    
-    // Track if we're in selection mode
-    isSelecting = false;
+// Initialize the terminal functionality
+export function initializeTerminal() {
+    terminal = document.getElementById('terminal');
+    output = document.getElementById('output');
+    commandInput = document.getElementById('command-input');
 
-    // Always focus the input field
-    function focusInput() {
-        // Only focus if we're not selecting text
-        if (!isSelecting && window.getSelection().toString() === '') {
-            inputField.focus();
-        }
+    if (!terminal || !output || !commandInput) {
+        console.error('Terminal elements not found!');
+        return;
     }
 
-    // Focus input on page load
-    focusInput();
+    // Set up input handler
+    commandInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            const command = commandInput.value.trim().toLowerCase();
+            handleCommand(command);
+            commandInput.value = '';
+            
+            // Prevent default to avoid unwanted form submission
+            event.preventDefault();
+        }
+    });
+
+    // Keep focus on input when clicking anywhere in the terminal
+    terminal.addEventListener('click', () => {
+        commandInput.focus();
+    });
 
     // Handle mousedown event to detect start of selection
-    outputDiv.addEventListener("mousedown", function(event) {
+    output.addEventListener("mousedown", function(event) {
         isSelecting = true;
     });
 
@@ -42,201 +58,119 @@ export function initializeTerminal()
         // Short delay before allowing focus to return to input
         setTimeout(() => {
             isSelecting = false;
-            // Only refocus if no text is selected
+            // Only refocus if no text is selected 
             if (window.getSelection().toString() === '') {
                 focusInput();
             }
         }, 100);
     });
 
-    // Focus input when clicking directly on the terminal (but not on output)
-    terminal.addEventListener("click", function(event) {
-        // Only focus if we clicked directly on the terminal (not on output or during selection)
-        if (event.target === terminal && !isSelecting && window.getSelection().toString() === '') {
-            focusInput();
-        }
-    });
-
-    // Modify blur behavior to respect text selection
-    inputField.addEventListener("blur", function() {
-        // Only refocus if we're not selecting text
-        if (!isSelecting && window.getSelection().toString() === '') {
-            // Small delay to prevent focus issues
-            setTimeout(focusInput, 100);
-        }
-    });
-
-    // Handle keydown for special keys like up/down arrows
-    inputField.addEventListener("keydown", function(event) {
-        const history = getHistory();
-        
-        // Up arrow - navigate back in history
-        if (event.key === "ArrowUp") {
-            event.preventDefault();
-            
-            // If we're already at the last history item, do nothing
-            if (historyPosition >= history.length - 1) {
-                return;
-            }
-            
-            // Move up in history
-            historyPosition++;
-            inputField.value = getHistoryItem(historyPosition) || "";
-            
-            // Move cursor to end of input
-            setTimeout(() => {
-                inputField.selectionStart = inputField.selectionEnd = inputField.value.length;
-            }, 0);
-        }
-        
-        // Down arrow - navigate forward in history
-        else if (event.key === "ArrowDown") {
-            event.preventDefault();
-            
-            // If we're at the beginning of history or before, clear input
-            if (historyPosition <= 0) {
-                historyPosition = -1;
-                inputField.value = "";
-                return;
-            }
-            
-            // Move down in history
-            historyPosition--;
-            inputField.value = getHistoryItem(historyPosition) || "";
-            
-            // Move cursor to end of input
-            setTimeout(() => {
-                inputField.selectionStart = inputField.selectionEnd = inputField.value.length;
-            }, 0);
-        }
-        
-        // Escape - clear input
-        else if (event.key === "Escape") {
-            event.preventDefault();
-            inputField.value = "";
-            historyPosition = -1;
-        }
-    });
-
-    inputField.addEventListener("keypress", function (event) {
+    commandInput.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
             event.preventDefault();
-            const command = inputField.value.trim();
+            const command = commandInput.value.trim();
             if (command) {
-                printOutput("$> " + command);
+                printOutput("thibault@portfolio:~$ " + command);
                 processCommand(command);
-                
-                // Add to history and reset history position
-                addToHistory(command);
-                historyPosition = -1;
             }
-            inputField.value = "";
+            commandInput.value = "";
             focusInput(); // Ensure input stays focused after entering command
         }
     });
     
-    // Add a history command
-    window.commandHistory = function() {
-        printOutput("Command History:");
-        const history = getHistory();
-        if (history.length === 0) {
-            printOutput("No commands in history.");
-        } else {
-            printOutput(history.map((cmd, i) => `${i+1}. ${cmd}`).join('\n'));
-        }
-        return "Command history displayed.";
-    };
+    // Welcome message
+    printToTerminal(`Welcome to Thibault's portfolio terminal!
+Type 'help' to see available commands.`);
 }
 
-export function printOutput(text) {
-    const newLine = document.createElement("div");
-    // Replace \n with <br> tags for proper HTML line breaks
-    // Replace spaces with &nbsp; to preserve multiple spaces
-    newLine.innerHTML = text
-        .replace(/\n/g, '<br>')
-        .replace(/ {2,}/g, match => '&nbsp;'.repeat(match.length));
+// Handle a terminal command
+function handleCommand(command) {
+    // Echo the command
+    printToTerminal(`<span class="prompt">$></span> ${command}`, false);
     
-    // Alternative: use CSS to preserve whitespace
-    // newLine.style.whiteSpace = "pre-wrap";
+    // Skip empty commands
+    if (!command) return;
     
-    newLine.className = "terminal-line";
-    outputDiv.prepend(newLine);
+    // Process the command
+    switch (command) {
+        case 'help':
+            showHelp();
+            break;
+        case 'clear':
+            clearTerminal();
+            break;
+        case 'about':
+        case 'contact':
+        case 'projects':
+        case 'skills':
+        case 'education':
+        case 'experiences':
+            navigateToTab(command);
+            printToTerminal(`Navigating to ${command} tab...`);
+            break;
+        default:
+            printToTerminal(`Command not found: ${command}. Type 'help' to see available commands.`);
+    }
+}
+
+// Display help information
+function showHelp() {
+    let helpText = 'Available commands:\n\n';
+    
+    for (const [cmd, desc] of Object.entries(COMMANDS)) {
+        helpText += `${cmd.padEnd(12)} - ${desc}\n`;
+    }
+    
+    printToTerminal(helpText);
+}
+
+// Print text to the terminal
+function printToTerminal(text, isOutput = true) {
+    const output = document.getElementById('output');
+    const line = document.createElement('div');
+    line.className = 'terminal-line';
+    line.innerHTML = text;
+    
+    // Add the new line at the top for a more natural scrolling experience
+    output.insertBefore(line, output.firstChild);
+   
+    output.prepend(line);
+
+    // Ensure scroll position is at the bottom
+    output.scrollTop = output.scrollHeight;
     terminal.scrollTop = terminal.scrollHeight;
 }
 
-// Function to simulate typing a command and then executing it
-export function simulateCommand(command)
-{
-    if (inputField) {
-        inputField.value = command;
-    }
-    printOutput("$> " + command);
-    processCommand(command);
-    
-    // Add simulated commands to history too
-    addToHistory(command);
-    historyPosition = -1;
+// Clear the terminal
+function clearTerminal() {
+    const output = document.getElementById('output');
+    output.innerHTML = '';
 }
 
-export function processCommand(command)
-{
-    switch (command.toLowerCase()) {
-        case "welcome":
-            printOutput("Displaying welcome message...");
-            displayHtmlFile("welcome.html", "welcome-content");
-            break;
-        case "help":
-            showTerminal();
-            printOutput(runHelp());
-            inputField.value = "";
-            break;
-        case "status":
-            printOutput("Displaying status...");
-            displayHtmlFile("status.html", "status-content");
-            break;
-        case "projects":
-            printOutput("Displaying projects...");
-            displayHtmlFile("projects.html", "projects-content");
-            break;
-        case "skills":
-            printOutput("Displaying skills...");
-            displayHtmlFile("skills.html", "skills-content");
-            break;
-        case "experiences":
-            printOutput("Displaying experiences...");
-            displayHtmlFile("experiences.html", "experiences-content");
-            break;
-        case "education":
-            printOutput("Displaying education...");
-            displayHtmlFile("education.html", "education-content");
-            break;
-        case "about":
-            printOutput("Displaying about...");
-            displayHtmlFile("about.html", "about-content");
-            break;
-        case "contact":
-            printOutput("Displaying contact information...");
-            displayHtmlFile("contact.html", "contact-content");
-            break;
-        case "history":
-            window.commandHistory();
-            break;
-        case "clear":
-            outputDiv.innerHTML = "";
-            inputField.value = "";
-            break;
-        default:
-            printOutput("Error: command not found. Type 'help' for a list of available commands.");
-            inputField.value = "";
-    }
-    if (command.toLowerCase() !== "clear" && command.toLowerCase() !== "help") {
-        navTo(command);
+// Navigate to a specific tab using the existing switchTab function
+function navigateToTab(tabName) {
+    switchTab(tabName);
+}
+
+// Public function to simulate a command (can be called from other scripts)
+export function simulateCommand(command) {
+    const commandInput = document.getElementById('command-input');
+    if (commandInput) {
+        commandInput.value = command;
+        handleCommand(command);
+        commandInput.value = '';
     }
 }
 
-export function homeButton()
-{
-    loadContentWithoutHistory("welcome.html", "welcome-content");
-    processCommand("clear");
-    simulateCommand("help");
+// Process a command
+export function processCommand(command) {
+    // Echo the command
+    printToTerminal(`<span class="prompt">thibault@portfolio:~$</span> ${command}`, false);
+}
+
+export function focusInput() {
+    // Only focus if we're not selecting text
+    if (!isSelecting && window.getSelection().toString() === '') {
+        commandInput.focus();
+    }
 }

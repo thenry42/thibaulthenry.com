@@ -1,11 +1,198 @@
-@import "components/styles.css";
-@import "components/education.css";
-@import "components/status.css";
-@import "components/projects.css";
-@import "components/skills.css";
-@import "components/experiences.css";
-@import "components/about.css";
-@import "components/contact.css";
-@import "components/welcome.css";
-@import "components/footer.css";
-@import "components/header.css";
+@import "components/font.css";
+@import "components/terminal.css";
+
+/* Import Quicksand for the overall clean, zen look */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+
+:root {
+    /* Pastel Color Theme */
+    --pastel-00: #B5828C;
+    --pastel-01: #E5989B;
+    --pastel-02: #FFB4A2;
+    --pastel-03: #FFCDB2;
+    --pastel-04: #FFE6B3;
+    --text-color: #604652;
+}
+
+html {
+    height: 100%;
+    max-height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure body and html take full height */
+body {
+    height: 100%;
+    margin: 0;
+    padding: 1.5em;
+    box-sizing: border-box;
+    color: var(--text-color);
+    background: var(--pastel-03);
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent scrolling */
+    max-height: inherit;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: -2.5rem; /* Pull tabs up closer to header */
+}
+
+/* Header layout */
+.header-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 0;
+    min-height: 2rem; /* Add minimum height to maintain header space */
+}
+
+/* Logo styling */
+.logo {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0;
+    margin-left: auto;
+    padding-right: 1rem;
+    position: relative;
+    z-index: 3;
+    min-height: 1.5rem;
+}
+
+.logo h1 {
+    margin: 0;
+    min-height: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Show full name by default */
+.logo h1::after {
+    content: "Thibault Henry";
+}
+
+/* Media queries in correct order - from largest to smallest */
+@media screen and (max-width: 1250px) {
+    .logo h1::after {
+        content: "Thibault H.";
+    }
+}
+
+@media screen and (max-width: 1210px) {
+    .logo h1::after {
+        content: "Tibo";
+    }
+}
+
+@media screen and (max-width: 1111px) {
+    .logo h1::after {
+        content: "";
+    }
+    
+    /* Ensure header maintains height */
+    .logo, .logo h1 {
+        min-height: 1.5em;
+    }
+}
+
+/* Navigation items container */
+.header-nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* Main tabs container */
+.tabs-container {
+    margin: 0.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+    position: relative; /* For z-index to work */
+    z-index: 1; /* Keep tabs below header */
+    max-height: inherit;
+}
+
+/* Tabs row */
+.tabs {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0; /* Remove negative margin */
+    overflow: visible; /* Ensure tabs can overflow for hover effects */
+}
+
+/* Individual tab */
+.tab {
+    position: relative;
+    padding: 1rem 2rem;
+    background: var(--pastel-02);
+    cursor: pointer;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    border: none;
+    color: var(--text-color);
+    border-radius: 1em 1em 0 0;
+    
+    /* Smooth transition for hover/active states */
+    transition: transform 0.3s ease, 
+                background-color 0.3s ease;
+    
+    /* Initial position */
+    transform-origin: bottom;
+    transform: translateY(0);
+}
+
+/* Hover effect with offset */
+.tab:hover {
+    background: var(--pastel-00);
+    z-index: 0; /* Bring hovered tab forward */
+}
+
+/* Active tab */
+.tab.active {
+    background: var(--pastel-01);
+    z-index: 4; /* Active tab should be above hovered tabs */
+    border-radius: 1em 1em 0 0;
+}
+
+/* Active tab when hovered */
+.tab.active:hover {
+    background: var(--pastel-01);
+}
+
+/* Tab content */
+.tab-content {
+    border: 1px solid var(--pastel-01);
+    border-radius: 0 1em 1em 1em; /* Round all corners except top-left */
+    padding: 2rem;
+    background: var(--pastel-01);
+    flex: 1;
+    position: relative; /* For proper z-index stacking */
+    overflow: auto;
+    min-width: 900px;
+    max-height: inherit;
+}
+
+/* Ensure tab panes fill the content area */
+.tab-pane {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    height: 100%;
+}
+
+.tab-pane.active {
+    display: block;
+    opacity: 1;
+    height: 100%;
+}

@@ -1,0 +1,93 @@
+/* Terminal styling */
+#terminal-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    max-height: 100%;
+}
+
+#terminal {
+    background-color: var(--pastel-01);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    overflow: auto;
+    scrollbar-width: none;
+    max-height: inherit;
+}
+
+#output {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: lighter;
+    cursor: text;
+    user-select: text;
+    scrollbar-width: none;
+}
+
+#input-line {
+    display: flex;
+    background-color: var(--pastel-01);
+    width: 100%;
+    user-select: text;
+}
+
+.prompt {
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.4;
+    margin-right: 10px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+#command-input {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+    font-size: 16px;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    outline: none;
+    width: 100%;
+    user-select: text;
+}
+
+.terminal-line {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+    user-select: text;
+    cursor: text;
+    padding: 2px 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Style for selected text in terminal */
+#terminal ::selection {
+    background-color: var(--pastel-00);
+    color: white;
+}
+
+/* Terminal-specific cursor styles */
+#terminal, #output, .terminal-line, #command-input {
+    cursor: text;
+}
+
+/* Make sure terminal doesn't grow beyond container */
+.tab-pane[data-tab="terminal"] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
