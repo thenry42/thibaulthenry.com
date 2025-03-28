@@ -89,7 +89,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-top: 0;
 }
 
 .experience-date {
@@ -146,4 +146,9 @@
     .experience-date {
         margin-top: 0.5rem;
     }
+}
+
+/* Or if you prefer to target the last experience card */
+.timeline .experience-card:last-child {
+    margin-bottom: 5em;
 }

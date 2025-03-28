@@ -8,11 +8,6 @@
     background-color: var(--pastel-02);
 }
 
-/* Skills Header */
-.skills-header {
-    margin-bottom: 2rem;
-}
-
 .skills-header h1 {
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
@@ -30,7 +25,7 @@
 
 /* Skills Section */
 .skills-section {
-    margin-bottom: 2rem;
+    margin-bottom: 1em;
 }
 
 .skills-section h2 {
@@ -38,7 +33,7 @@
     font-weight: 600;
     font-size: 1.5rem;
     color: var(--text-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 /* Skills Grid */
@@ -47,6 +42,10 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
     margin-bottom: 1rem;
+}
+
+.skills-section:last-child .skills-grid:last-child {
+    margin-bottom: 5em;
 }
 
 /* Skill Card */

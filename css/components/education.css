@@ -6,11 +6,7 @@
     border-radius: 5px;
     max-height: 100%;
     background-color: var(--pastel-02);
-}
-
-/* Education Header */
-.education-header {
-    margin-bottom: 2rem;
+    padding: 2rem;
 }
 
 .education-header h1 {
@@ -18,6 +14,7 @@
     font-weight: 600;
     font-size: 2rem;
     color: var(--text-color);
+    margin-bottom: 1rem;
 }
 
 .education-intro {
@@ -25,35 +22,49 @@
     font-weight: 400;
     color: var(--text-color);
     line-height: 1.4;
+}
+
+/* Education Sections */
+.education-section {
+    margin-bottom: 2rem;
+}
+
+.education-section h2 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--text-color);
     margin-bottom: 1rem;
 }
 
-/* Education Items */
-.education-item {
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid var(--pastel-00);
+.education-section h2 i {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--pastel-00);
 }
 
-.education-item:last-child {
+/* Education Cards */
+.education-card {
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid var(--pastel-00);
+    padding: 1.5rem;
+}
+
+/* Target only the last card in the previous section */
+.education-section.previous .timeline .education-card:last-child {
     margin-bottom: 5em;
 }
 
-/* Education Header */
-.edu-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.school-name {
+.education-card h3 {
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
     font-size: 1.25rem;
-    margin: 0;
     color: var(--text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
 }
 
 .edu-date {
@@ -66,17 +77,12 @@
     border-radius: 5px;
 }
 
-/* Education Description */
-.edu-description {
+.school-type, .school-location, .edu-description {
     color: var(--text-color);
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
     line-height: 1.4;
     margin-bottom: 1rem;
-}
-
-.edu-description i {
-    font-style: italic;
 }
 
 /* Education Highlights */
@@ -102,7 +108,7 @@
 }
 
 /* Links */
-.education-item a {
+.education-card a {
     color: var(--text-color);
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
@@ -110,7 +116,7 @@
     text-decoration: none;
 }
 
-.education-item a:hover {
+.education-card a:hover {
     text-decoration: underline;
 }
 
@@ -120,16 +126,20 @@
         padding: 1rem;
     }
 
-    .edu-header {
+    .timeline {
+        padding-left: 1.5rem;
+    }
+
+    .education-card::before {
+        left: -1.5rem;
+    }
+
+    .education-card h3 {
         flex-direction: column;
         align-items: flex-start;
     }
 
     .edu-date {
         margin-top: 0.5rem;
-    }
-
-    .school-name {
-        font-size: 1.1rem;
     }
 }
