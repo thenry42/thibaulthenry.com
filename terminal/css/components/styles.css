@@ -1,10 +1,24 @@
+:root {
+    --color-0: #41e881;
+    --color-1: #62eb8f;
+    --color-2: #a6f4b9;
+    --color-3: #b9f7c7;
+    --color-4: #121212;
+    --color-5: #282828;
+    --color-6: #717171;
+    --color-7: #8b8b8b;
+    --color-8: #1a241c;
+    --color-9: #2f3931;
+    --color-10: #5d655f;
+}
+
 * {
-    cursor: default;
+    cursor: default;    
 }
 
 body {
-    background-color: black;
-    color: green;
+    background-color: var(--color-4);
+    color: var(--color-0);
     font-family: monospace;
     margin: 0;
     padding: 40px;
@@ -16,7 +30,7 @@ body {
 }
 
 h2 {
-    color: green;
+    color: var(--color-0);
     font-family: monospace;
     font-size: 20px;
     font-weight: bold;
@@ -75,12 +89,12 @@ h2 {
 
 #logo {
     flex: 0 0 auto; /* Don't grow or shrink, use natural size */
-    color: green;
+    color: var(--color-0);
     text-align: left;
     font-size: 8px;
     line-height: 1;
     white-space: pre;
-    border: 1px solid green;
+    border: 1px solid var(--color-0);
     border-radius: 5px;
     padding: 15px;
     padding-top: 30px;
@@ -88,14 +102,15 @@ h2 {
     padding-right: 40px;
     box-sizing: border-box;
     margin: 0;
+    background-color: var(--color-5);
 }
 
 #logo-right-container {
     flex: 1; /* Take up remaining space */
-    border: 1px solid green;
+    border: 1px solid var(--color-0);
     border-radius: 5px;
     padding: 20px;
-    color: green;
+    color: var(--color-0);
     font-family: monospace;
     font-size: 18px;
     overflow: auto;
@@ -103,6 +118,7 @@ h2 {
     display: flex; /* Add flexbox for centering */
     align-items: center; /* Center items vertically */
     justify-content: center; /* Center horizontally */
+    background-color: var(--color-5);
 }
 
 #terminal {
