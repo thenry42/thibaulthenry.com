@@ -186,7 +186,7 @@ export function processCommand(command)
             displayHtmlFile("welcome.html", "welcome-content");
             break;
         case "help":
-            showTerminal();
+            //showTerminal();
             printOutput(runHelp());
             inputField.value = "";
             break;
@@ -228,6 +228,7 @@ export function processCommand(command)
         default:
             printOutput("Error: command not found. Type 'help' for a list of available commands.");
             inputField.value = "";
+            return;
     }
     if (command.toLowerCase() !== "clear" && command.toLowerCase() !== "help") {
         navTo(command);
