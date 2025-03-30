@@ -8,8 +8,8 @@ const COLORS = {
         HOVER: '#282828'      // Slightly lighter black for hover
     },
     PASTEL: {
-        BASE: '#FFCDB2',      // Soft pink
-        HOVER: '#FFB4A2'      // Lighter pink for hover
+        BASE: '#FFB4A2',      // Soft pink
+        HOVER: '#FFCDB2'      // Lighter pink for hover
     }
 };
 
