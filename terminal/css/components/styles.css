@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
+
 :root {
     --color-0: #41e881;
     --color-1: #62eb8f;
@@ -10,6 +13,10 @@
     --color-8: #1a241c;
     --color-9: #2f3931;
     --color-10: #5d655f;
+
+    --font-family: 'Chakra Petch', sans-serif;
+    --font-size: 16px;
+    --font-weight: 200;
 }
 
 * {
@@ -19,7 +26,9 @@
 body {
     background-color: var(--color-4);
     color: var(--color-0);
-    font-family: monospace;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
     margin: 0;
     padding: 40px;
     display: flex;
@@ -31,7 +40,6 @@ body {
 
 h2 {
     color: var(--color-0);
-    font-family: monospace;
     font-size: 20px;
     font-weight: bold;
     margin: 0;
@@ -72,12 +80,13 @@ h2 {
     padding: 20px;
     overflow: auto;
     color: var(--color-0);
-    font-family: monospace;
-    font-size: 18px;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
     max-height: 100%;
     scrollbar-width: none;
     width: 100%; /* Ensure full width */
     box-sizing: border-box; /* Include padding in width calculation */
+    background-color: var(--color-5);
 }
 
 #logo-container {
@@ -92,15 +101,14 @@ h2 {
     flex: 0 0 auto; /* Don't grow or shrink, use natural size */
     color: var(--color-0);
     text-align: left;
-    font-size: 8px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 28px;
+    font-weight: bold;
     line-height: 1;
     white-space: pre;
     border: 1px solid var(--color-0);
     border-radius: 5px;
-    padding: 15px;
-    padding-top: 30px;
-    padding-left: 30px;
-    padding-right: 40px;
+    padding: 30px;
     box-sizing: border-box;
     margin: 0;
     background-color: var(--color-5);
@@ -112,7 +120,6 @@ h2 {
     border-radius: 5px;
     padding: 20px;
     color: var(--color-0);
-    font-family: monospace;
     font-size: 18px;
     overflow: auto;
     position: relative; /* For absolute positioning of menu */
@@ -123,12 +130,15 @@ h2 {
 }
 
 #terminal {
+    font-family: var(--font-family);
+    font-size: calc(var(--font-size) + 4px);
+    font-weight: calc(var(--font-weight) + 100);
     width: 100%;
     max-height: inherit;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    line-height: 1.4;
+    line-height: 1.5;
     box-sizing: border-box;
     position: relative;
     overflow: auto;
@@ -140,9 +150,9 @@ h2 {
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-start; /* Start content from the top */
-    font-size: 20px;
-    line-height: 1.4;
-    font-weight: lighter;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
     scrollbar-color: var(--color-0);
     cursor: text; /* Show text cursor in the output area */
 }
@@ -156,23 +166,28 @@ h2 {
 }
 
 .prompt {
-    margin-right: 10px;
-    font-size: 20px;
-    font-weight: lighter;
+    font-family: var(--font-family);
+    font-size: calc(var(--font-size) + 4px);
+    margin-right: 3px;
+    font-weight: var(--font-weight);
 }
 
 #command-input {
+    font-family: var(--font-family);
     background: transparent;
     border: none;
     color: var(--color-0);
-    font-family: monospace;
-    font-size: 20px;
+    font-size: calc(var(--font-size) + 4px);
+    font-weight: calc(var(--font-weight) - 100);
     outline: none;
     width: 100%;
     user-select: text;
 }
 
 .terminal-line {
+    font-family: var(--font-family);
+    font-size: calc(var(--font-size) + 4px);
+    font-weight: var(--font-weight);
     user-select: text;
     cursor: text;
     padding: 2px 0;

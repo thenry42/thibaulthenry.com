@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300;400;500;600;700&display=swap');
+
 /* Header-specific styles */
 #header-menu {
     display: flex;
@@ -22,6 +24,7 @@
     flex: 0 0 auto; /* Don't shrink or grow */
     white-space: nowrap; /* Prevent wrapping */
     overflow: hidden; /* Hide overflow */
+    height: 2.5em;
 }
 
 .nav-container {
@@ -29,6 +32,7 @@
     align-items: center;
     position: relative;
     gap: 10px; /* Adds spacing between groups */
+    height: 2.5em;
 }
 
 .nav-tabs {
@@ -57,8 +61,8 @@
     color: var(--color-0);
     border: 1px solid var(--color-0);
     border-radius: 5px;
-    width: 40px;
-    height: 40px;
+    width: 2.5em;
+    height: 2.5em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,6 +78,7 @@
 
 .menu-item {
     color: var(--color-0);
+    font-family: var(--font-family);
     text-decoration: none;
     font-size: 20px;
     font-weight: bold;

@@ -123,7 +123,7 @@ export function initializeTerminal()
             event.preventDefault();
             const command = inputField.value.trim();
             if (command) {
-                printOutput("$> " + command);
+                printOutput("> " + command);
                 processCommand(command);
                 
                 // Add to history and reset history position
@@ -170,7 +170,7 @@ export function simulateCommand(command)
     if (inputField) {
         inputField.value = command;
     }
-    printOutput("$> " + command);
+    printOutput("> " + command);
     processCommand(command);
     
     // Add simulated commands to history too
