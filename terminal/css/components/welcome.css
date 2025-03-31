@@ -1,3 +1,5 @@
+@import url('../main.css');
+
 /* Welcome page styling */
 .welcome-container {
     display: flex;
@@ -33,7 +35,7 @@
 .welcome-header h1 {
     margin: 0;
     font-size: 2rem;
-    color: #7cb7ff;
+    color: var(--color-3);
 }
 
 .welcome-content {
@@ -43,15 +45,15 @@
 
 .terminal-command {
     background-color: rgba(0, 255, 0, 0.1);
-    border: 1px solid green;
+    border: 1px solid var(--color-0);
     padding: 2px 6px;
     border-radius: 3px;
     font-family: 'Courier New', monospace;
-    color: green;
+    color: var(--color-0);
 }
 
 .highlight {
-    color: #7cb7ff;
+    color: var(--color-3);
     font-weight: bold;
 }
 
@@ -95,13 +97,13 @@
 
 .command-list li:before {
     content: "▶";
-    color: green;
+    color: var(--color-0);
     margin-right: 10px;
 }
 
 .fun-fact {
-    background-color: rgba(124, 183, 255, 0.1);
-    border-left: 3px solid #7cb7ff;
+    background-color: var(--color-9);
+    border-left: 3px solid var(--color-3);
     padding: 12px 15px;
     margin: 20px 0;
     border-radius: 4px;

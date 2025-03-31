@@ -1,3 +1,5 @@
+@import url('../main.css');
+
 /* Status page styling */
 .status-container {
     display: flex;
@@ -10,29 +12,27 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(0, 255, 0, 0.3);
-    padding-bottom: 12px;
-    margin-bottom: 10px;
 }
 
-.status-header h2 {
+.status-header h1 {
     margin: 0;
-    color: #7cb7ff;
+    color: var(--color-3);
+    font-size: 2rem;
 }
 
 .status-badge {
     padding: 5px 12px;
     border-radius: 20px;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1em;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
 .status-badge.available {
-    background-color: rgba(0, 255, 0, 0.2);
-    color: #00ff00;
-    border: 1px solid #00ff00;
+    background-color: var(--color-9);
+    color: var(--color-0);
+    border: 1px solid var(--color-0);
 }
 
 .status-content {
@@ -44,22 +44,29 @@
     margin-bottom: 16px;
 }
 
-.status-link {
-    color: #7cb7ff;
+.status-content a {
+    color: var(--color-3);
     text-decoration: none;
-    border-bottom: 1px dashed #7cb7ff;
+    border-bottom: 1px dashed var(--color-3);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.status-link {
+    color: var(--color-3);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--color-3);
     transition: color 0.3s, border-color 0.3s;
 }
 
 .status-link:hover {
-    color: #5da8ff;
-    border-color: #5da8ff;
+    color: var(--color-3);
+    border-color: var(--color-3);
 }
 
 .status-looking-for {
     margin-top: 24px;
-    background-color: rgba(0, 255, 0, 0.05);
-    border-left: 3px solid #00ff00;
+    background-color: var(--color-9);
+    border-left: 3px solid var(--color-0);
     padding: 15px;
     border-radius: 4px;
 }
@@ -67,7 +74,7 @@
 .status-looking-for h3 {
     margin-top: 0;
     margin-bottom: 12px;
-    color: #7cb7ff;
+    color: var(--color-3);
 }
 
 .status-list {

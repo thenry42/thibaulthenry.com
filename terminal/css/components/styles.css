@@ -14,13 +14,11 @@
     --color-9: #2f3931;
     --color-10: #5d655f;
 
+    /* --font-family: 'monospace'; Looks good as well */
+
     --font-family: 'Chakra Petch', sans-serif;
     --font-size: 16px;
     --font-weight: 200;
-}
-
-* {
-    cursor: default;    
 }
 
 body {

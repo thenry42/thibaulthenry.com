@@ -1,3 +1,5 @@
+@import url('../main.css');
+
 /* Education section styling to match experiences */
 .education-section {
     width: 100%;
@@ -10,7 +12,7 @@
 }
 
 .education-header h1 {
-    color: #7cb7ff;
+    color: var(--color-3);
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
@@ -21,7 +23,7 @@
 .education-intro {
     font-size: 18px;
     line-height: 1.5;
-    color: green;
+    color: var(--color-0);
 }
 
 /* Style education items like experience cards */
@@ -29,9 +31,9 @@
     position: relative;
     margin-bottom: 30px;
     padding: 20px;
-    border: 1px solid green;
+    border: 1px solid var(--color-0);
     border-radius: 5px;
-    background-color: rgba(0, 128, 0, 0.05);
+    background-color: var(--color-9);
     transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
     overflow: hidden;
@@ -48,7 +50,7 @@
     left: 0;
     width: 4px;
     height: 100%;
-    background-color: green;
+    background-color: var(--color-0);
     opacity: 0.7;
 }
 
@@ -67,7 +69,7 @@
 }
 
 .school-name {
-    color: #7cb7ff;
+    color: var(--color-3);
     font-weight: bold;
     font-size: 20px;
     margin: 0;
@@ -75,13 +77,13 @@
 }
 
 .edu-date {
-    color: #7cb7ff;
+    color: var(--color-3);
     font-weight: bold;
     font-size: 16px;
 }
 
 .edu-description {
-    color: green;
+    color: var(--color-0);
     line-height: 1.5;
     margin: 10px 0;
 }
@@ -89,7 +91,7 @@
 .edu-highlights {
     margin: 10px 0;
     padding-left: 20px;
-    color: green;
+    color: var(--color-0);
 }
 
 .edu-highlights li {
@@ -99,9 +101,9 @@
 
 /* Style links to match the rest of the site */
 .education-item a {
-    color: green;
+    color: var(--color-0);
     text-decoration: none;
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid var(--color-0);
     transition: color 0.3s, background-color 0.3s;
     padding: 2px 4px;
     cursor: pointer !important;
@@ -113,8 +115,8 @@
 }
 
 .education-item a:hover {
-    color: black;
-    background-color: green;
+    color: var(--color-0);
+    background-color: var(--color-9);
     border-color: transparent;
     cursor: pointer !important;
     text-decoration: none;
@@ -128,13 +130,13 @@
 /* Add hover effect to match experiences */
 .education-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 15px var(--color-9);
     z-index: 1;
 }
 
 /* Active state effect */
 .education-item:active {
-    background-color: rgba(0, 128, 0, 0.2);
+    background-color: var(--color-9);
     cursor: pointer;
 }
 
