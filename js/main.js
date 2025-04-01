@@ -18,12 +18,12 @@ const sections = [
     { 
         name: 'Terminal',
         color: COLORS.TERMINAL.BASE,
-        url: 'terminal/index.html'
+        url: 'https://thibaulthenry.com/terminal/index.html'
     },
     { 
         name: 'Pastel',
         color: COLORS.PASTEL.BASE,
-        url: 'pastel/index.html'
+        url: 'https://thibaulthenry.com/pastel/index.html'
     }
 ];
 
