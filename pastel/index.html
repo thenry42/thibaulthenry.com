@@ -37,6 +37,8 @@
                     <div class="welcome-message">
                         <h1>Hello there,</h1>
                         <p> I'm Thibault, a 26 years old french software engineer student based in Paris.</p>
+                        <p>I'm currently looking for an <span class="highlight">apprenticeship (Alternance)</span> starting as soon as possible!</p>
+                        <p>If you want to know more about me, feel free to explore this website :)</p>
                     </div>
                 </div>
             </div>
@@ -63,7 +65,8 @@
                                 <span class="tech-tag">Hostinger</span>
                             </div>
                             <p class="project-description">
-                                A terminal-style portfolio website built with vanilla JavaScript. Features a fully interactive command-line interface with content history navigation and hack effect text rendering.
+                                A two-in-one portfolio website featuring a terminal-style and a more traditional blog built with vanilla JavaScript, HTML and CSS. It Features a fully interactive command-line interface with content history navigation and hack effect text rendering.
+                                The 'pastel' theme and part of the website allows for a better readability for those not familiar with a terminal. This project is a work in progress and I'm currently working on adding more features to it. The main goal of this website is to showcase my skills and projects in a interactive way.
                             </p>
                         </div>
 
@@ -81,11 +84,13 @@
                                 <span class="tech-tag">OpenAI API</span>
                                 <span class="tech-tag">Anthropic API</span>
                                 <span class="tech-tag">Ollama</span>
+                                <span class="tech-tag">Python</span>
                             </div>
                             <p class="project-description">
                                 A Flutter application that allows you to interact with AI models. It uses the OpenAI and Anthropic APIs to generate text and the Ollama API to run local models.
                                 It's my first Flutter app and I'm still learning the basics. The app can safely save API keys and chat history between sessions. It is nowhere near production ready but I intend on releasing a stable version in the near future for Linux, MacOS and Windows.
                             </p>
+                            <i>NB: there is currently a big rework ongoing; I'm changing the backend (from Flutter packages like anthropic to Python packages, so it requires a lot of rewriting existing code)</i>
                         </div>
                 
                         <div class="project-card" data-category="personal">
@@ -104,6 +109,7 @@
                             <p class="project-description">
                                 This website is the first job I've done as a 'freelancer'. It's a simple showcase website for a couple of friends that exhibit their craftsmanship.
                                 They make and sell custom made lamps (Luminaires). I was tasked to build the website from scratch following their mockup design for both desktop and mobile.
+                                I am constantly improving the website, trying to make the experience smoother for the end user and I'm trying to increase the visibility of the website SEO-wise.
                             </p>
                         </div>
                     </div>
@@ -127,7 +133,8 @@
                                 <span class="tech-tag">Docker</span>
                             </div>
                             <p class="project-description">
-                                Final project at 42 school - A full-stack web application featuring real-time multiplayer Pong game.
+                                Transcendence is a 4-person project that aims at creating a functionning website allowing users (42 students only) to play Pong in multiplayer and allowing them to chat with people.
+                                As a team, we have implemented a lot of features, both mandatory and optionnal.
                             </p>
                             <div class="project-score">
                                 <span class="score">125/100</span>
@@ -147,7 +154,7 @@
                                 <span class="tech-tag">IRC Protocol</span>
                             </div>
                             <p class="project-description">
-                                Description of the project here.
+                                ft_irc is a 3-person project that consist of re-creating an IRC chat in C++ (only). We had to manage connections, logging-in, logging-out, adding users to channels, blocking users, etc. We used IRSSI as a client and it worked flawlessly.
                             </p>
                             <div class="project-score">
                                 <span class="score">125/100</span>
@@ -167,7 +174,8 @@
                                 <span class="tech-tag">MiniLibX (graphics library)</span>
                             </div>
                             <p class="project-description">
-                                Description of the project here.
+                                Cub3d is an awesome project consisting of re-creating the first FPS game ever: Wolfenstein 3D. It was a 2-person project I did with a friend and it requires to understand and implement a Raycasting algorithm.
+                                It is as a C-only project and we used the MiniLibX as a graphical library.
                             </p>
                             <div class="project-score">
                                 <span class="score">110/100</span>
@@ -187,7 +195,8 @@
                                 <span class="tech-tag">Unix</span>
                             </div>
                             <p class="project-description">
-                                Description of the project here.
+                                Minishell is a big step in the 42 journey. A very insteresting project that happens to be terribly painful. It is a 2-person project that aims at creating a simplified shell (like Bash or zsh).
+                                We had to handle some signals (SIGKILL, SIGINT), handle redirections, pipe commands, environment variables, etc. It was obviously coded in C.
                             </p>
                             <div class="project-score">
                                 <span class="score">101/100</span>
@@ -208,7 +217,7 @@
                                 <span class="tech-tag">Semaphores</span>
                             </div>
                             <p class="project-description">
-                                Description of the project here.
+                                Philosophers is a fun project that aims at solving the dining philosophers problem using multiple threads in C. The bonus part required to solve the problem using semaphores.
                             </p>
                             <div class="project-score">
                                 <span class="score">125/100</span>
@@ -228,7 +237,7 @@
                                 <span class="tech-tag">Algorithms</span>
                             </div>
                             <p class="project-description">
-                                Description of the project here.
+                                push_swap is a project consisting of sorting a list of numbers [0 - 500] using only 2 stacks and a set of rules/commands. It was a good introduction to chained-list in C and sorting algorithms in general.
                             </p>
                             <div class="project-score">
                                 <span class="score">94/100</span>
@@ -247,7 +256,7 @@
                                 <span class="tech-tag">MiniLibX (graphics library)</span>
                             </div>
                             <p class="project-description">
-                                Description of the project here.
+                                So_long is a simple 2d game looking like pacman. It was really fun and a good introduction to the MiniLibX library.
                             </p>
                             <div class="project-score">
                                 <span class="score">100/100</span>
@@ -295,7 +304,14 @@
                             </h3>
                             <p class="edu-description">
                                 Peer-to-peer learning methodology focused on computer programming.
+                                The school is based on the "learn by doing" philosophy and the students are encouraged to help each other.
+                                The curriculum is composed of dozens of projects; you can check some of them <a href="javascript:void(0)" onclick="window.switchTab('projects')">here</a>.
                             </p>
+                            <ul class="edu-highlights">
+                                <li>Peer-to-peer learning</li>
+                                <li>Project-based learning</li>
+                                <li>Eating code day and night</li>
+                            </ul>
                             <a href="https://42.fr/en/homepage/" target="_blank">Learn more about 42</a>
                         </div>
                     </div>
@@ -308,11 +324,11 @@
                                     Ipag Business School, Paris
                                     <span class="edu-date">2016 - 2021</span>
                                 </h3>
-                                <p class="school-type">Master degree in corporate finance</p>
+                                <p class="school-type">Master degree in corporate finance & audit</p>
                                 <ul class="edu-highlights">
                                     <li>Financial analysis</li>
-                                    <li>Investment strategies</li>
-                                    <li>Corporate valuation</li>
+                                    <li>Controlling</li>
+                                    <li>Audit</li>
                                 </ul>
                                 <a href="https://www.ipag.edu/" target="_blank">Learn more about IPAG</a>
                             </div>
@@ -322,17 +338,29 @@
                                     New Jersey City University, USA
                                     <span class="edu-date">Spring 2019</span>
                                 </h3>
-                                <p class="edu-description">Exchange semester in the United States</p>
+                                <p class="edu-description">Exchange semester in New Jersey, USA</p>
+                                <ul class="edu-highlights">
+                                    <li>Business</li>
+                                    <li>Marketing</li>
+                                    <li>Management</li>
+                                    <li>Communication</li>
+                                </ul>
                                 <a href="https://www.njcu.edu/" target="_blank">Learn more about NJCU</a>
                             </div>
 
                             <div class="education-card">
                                 <h3>
-                                    Notre-Dame des Missions Saint Pierre
+                                    Notre-Dame des Missions Saint Pierre, Charenton-le-Pont
                                     <span class="edu-date">2001 - 2016</span>
                                 </h3>
-                                <p class="school-location">Charenton-le-Pont, France</p>
                                 <p class="edu-description">Baccalauréat ES (CGE / High School Diploma)</p>
+                                <ul class="edu-highlights">
+                                    <li>Philosophy</li>
+                                    <li>English</li>
+                                    <li>Maths</li>
+                                    <li>Economics</li>
+                                    <li>History</li>
+                                </ul>
                                 <p class="edu-description"><i>I indeed spent 15 years in the same place, seeing the same people. It was both a blessing and a curse. I will most likely keep the friends I made there for the rest of my life but that place really felt like a life sentence at times.</i></p>
                                 <a href="https://www.notredamedesmissions.fr/" target="_blank">Learn more about jail</a>
                             </div>
@@ -371,7 +399,7 @@
                                 </h3>
                                 <p class="company">QAPA, Paris, France</p>
                                 <p class="experience-description">
-                                    Description of your responsibilities and achievements in this role.
+                                    Preparation of payroll for temporary employees (interim staff), ensuring accuracy and compliance. Management of disputes through professional communication via email and phone calls.
                                 </p>
                             </div>
                 
@@ -382,7 +410,7 @@
                                 </h3>
                                 <p class="company">Cabinet ACTION, Charenton-le-Pont, France</p>
                                 <p class="experience-description">
-                                    Description of your responsibilities and achievements in this role.
+                                    Participation in all of the office's missions (accounting expertise for 50+ clients and legal audit missions).
                                 </p>
                             </div>
                 
@@ -393,7 +421,7 @@
                                 </h3>
                                 <p class="company">Saleduck, Amsterdam, Netherlands</p>
                                 <p class="experience-description">
-                                    Description of your responsibilities and achievements in this role.
+                                    Management of the company's French websites. In charge of setting up online offers (coupon codes), newsletters, translations.
                                 </p>
                             </div>
                 
@@ -404,7 +432,7 @@
                                 </h3>
                                 <p class="company">Smartrenting, Paris, France</p>
                                 <p class="experience-description">
-                                    Description of your responsibilities and achievements in this role.
+                                    Management of reservations, disputes, unpaid bills, reception of customers. Advice to travelers and renters.
                                 </p>
                             </div>
                 
@@ -415,7 +443,7 @@
                                 </h3>
                                 <p class="company">Darty, Charenton-le-Pont, France</p>
                                 <p class="experience-description">
-                                    Description of your responsibilities and achievements in this role.
+                                    Stocking shelves and advising customers regarding audio devices and computers.
                                 </p>
                             </div>
                         </div>
@@ -443,16 +471,17 @@
                                 </div>
                                 <p class="skill-description">
                                     Strong proficiency in C and C++, with experience in systems programming, memory management, and performance optimization.
+                                    Most of the projects I have worked on were coded in C and C++.
                                 </p>
                             </div>
                             
                             <div class="skill-card">
                                 <h3>Python</h3>
                                 <div class="skill-level">
-                                    <div class="skill-bar" style="width: 85%"></div>
+                                    <div class="skill-bar" style="width: 60%"></div>
                                 </div>
                                 <p class="skill-description">
-                                    Experienced in Python for web development, data analysis, and automation. Familiar with frameworks like Django.
+                                    I am currently learning python and although I haven't had the opportunity to use it a lot at school for my previous projects, it is now mandatory for data analysis and IA related projects. I intend to complete different specialization as part of my journey at 42 and most of them require a mastery of python.
                                 </p>
                             </div>
                             
@@ -462,17 +491,18 @@
                                     <div class="skill-bar" style="width: 80%"></div>
                                 </div>
                                 <p class="skill-description">
-                                    Proficient in vanilla JavaScript for front-end development, DOM manipulation, and interactive web applications.
+                                    Proficient in vanilla JavaScript for front-end development, DOM manipulation, and interactive web applications like this website.
                                 </p>
                             </div>
                             
                             <div class="skill-card">
-                                <h3>Dart</h3>
+                                <h3>Dart/Flutter</h3>
                                 <div class="skill-level">
                                     <div class="skill-bar" style="width: 70%"></div>
                                 </div>
                                 <p class="skill-description">
-                                    Experience with Dart for Flutter application development, including state management and UI design.
+                                    Experience with Dart for Flutter application development, including state management and UI design. My main insterest of Dart comes from the fact that a Flutter app can be used on any device. My `Promptly` project is written in Dart/Flutter and python.
+                                    Checkout my project <a href="https://github.com/thenry42/Promptly" target="_blank">here</a>
                                 </p>
                             </div>
                         </div>
@@ -484,30 +514,20 @@
                             <div class="skill-card">
                                 <h3>HTML/CSS</h3>
                                 <div class="skill-level">
-                                    <div class="skill-bar" style="width: 90%"></div>
+                                    <div class="skill-bar" style="width: 85%"></div>
                                 </div>
                                 <p class="skill-description">
-                                    Strong foundation in semantic HTML and CSS, including responsive design and modern layout techniques.
-                                </p>
-                            </div>
-                            
-                            <div class="skill-card">
-                                <h3>Django</h3>
-                                <div class="skill-level">
-                                    <div class="skill-bar" style="width: 75%"></div>
-                                </div>
-                                <p class="skill-description">
-                                    Experience building web applications with Django, including authentication, database models, and REST APIs.
+                                    Good foundation in semantic HTML and CSS, including responsive design and modern layout techniques.
                                 </p>
                             </div>
                             
                             <div class="skill-card">
                                 <h3>THREE.js</h3>
                                 <div class="skill-level">
-                                    <div class="skill-bar" style="width: 65%"></div>
+                                    <div class="skill-bar" style="width: 70%"></div>
                                 </div>
                                 <p class="skill-description">
-                                    Knowledge of 3D graphics programming for the web using THREE.js library.
+                                    Knowledge of 3D graphics programming for the web using THREE.js library. We used it for ft_trancendance as our pong game was partly in 3D.
                                 </p>
                             </div>
                         </div>
@@ -529,7 +549,7 @@
                             <div class="skill-card">
                                 <h3>Docker</h3>
                                 <div class="skill-level">
-                                    <div class="skill-bar" style="width: 80%"></div>
+                                    <div class="skill-bar" style="width: 60%"></div>
                                 </div>
                                 <p class="skill-description">
                                     Experience with containerization using Docker, including multi-container applications with Docker Compose.
@@ -539,10 +559,11 @@
                             <div class="skill-card">
                                 <h3>Linux/Unix</h3>
                                 <div class="skill-level">
-                                    <div class="skill-bar" style="width: 90%"></div>
+                                    <div class="skill-bar" style="width: 95%"></div>
                                 </div>
                                 <p class="skill-description">
                                     Strong command-line skills and experience with Linux environments, shell scripting, and system administration.
+                                    Minishell played a big role in making me comfortable with a terminal.
                                 </p>
                             </div>
                             
@@ -564,10 +585,10 @@
                             <div class="skill-card">
                                 <h3>Problem Solving</h3>
                                 <div class="skill-level">
-                                    <div class="skill-bar" style="width: 95%"></div>
+                                    <div class="skill-bar" style="width: 85%"></div>
                                 </div>
                                 <p class="skill-description">
-                                    Strong analytical thinking and ability to break down complex problems into manageable components.
+                                    Good analytical thinking and ability to break down complex problems into manageable components. At least, I am doing my best :)
                                 </p>
                             </div>
                             
@@ -590,6 +611,16 @@
                                     Passionate about staying current with new technologies and continuously improving my skills.
                                 </p>
                             </div>
+
+                            <div class="skill-card">
+                                <h3>Well organized</h3>
+                                <div class="skill-level">
+                                    <div class="skill-bar" style="width: 95%"></div>
+                                </div>
+                                <p class="skill-description">
+                                    I like to keep my workspace clean and my code well organized. I am using Notion/Obsidian on a daily basis to keep track of my projects and my ideas.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 
@@ -602,7 +633,7 @@
                                     <div class="skill-bar" style="width: 100%"></div>
                                 </div>
                                 <p class="skill-description">
-                                    I am a native French speaker, with excellent written and verbal communication skills, at least I hope so.
+                                    I am a native French speaker, with excellent written and verbal communication skills.
                                 </p>
                             </div>
                             

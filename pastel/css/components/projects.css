@@ -30,6 +30,13 @@
     border: 1px solid var(--pastel-00);
 }
 
+.project-card i {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    font-size: 0.875rem;
+    color: var(--text-color);
+}
+
 .project-header {
     display: flex;
     justify-content: space-between;
