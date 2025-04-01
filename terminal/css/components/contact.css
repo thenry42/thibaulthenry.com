@@ -1,0 +1,211 @@
+/* Contact page styling */
+.contact-container {
+    font-family: monospace;
+    margin: 30px auto; /* Center horizontally with automatic margins */
+    max-width: 600px; /* Limit width for better readability */
+    text-align: center; /* Center text elements */
+    border: 1px solid var(--color-0);
+    border-radius: 5px;
+    padding: 30px;
+    background-color: var(--color-9);
+}
+
+.contact-header {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+    font-size: 2rem;
+    color: var(--color-3); /* Changed to match terminal theme */
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.contact-table {
+    border-spacing: 0;
+    border-collapse: separate;
+    width: 100%;
+    margin: 0 auto; /* Center the table */
+    margin-top: 20px;
+}
+
+.contact-table tr {
+    line-height: 2;
+    transition: background-color 0.2s;
+    cursor: pointer !important;
+}
+
+.contact-table tr:hover {
+    background-color: var(--color-9);
+    cursor: pointer !important;
+}
+
+.contact-label {
+    color: var(--color-0);
+    text-align: right;
+    padding-right: 15px;
+    white-space: nowrap;
+    vertical-align: middle;
+    width: 140px;
+    font-weight: bold;
+}
+
+/* Copyable elements styling */
+.contact-value {
+    text-align: left;
+    vertical-align: middle;
+    position: relative;
+    cursor: copy;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-value-nocopy {
+    text-align: left;
+    vertical-align: middle;
+    position: relative;
+    cursor: pointer !important;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-value-nocopy a {
+    color: var(--color-0);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--color-0);
+    transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+    padding: 2px 4px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer !important;
+}
+
+.contact-value-nocopy a:hover {
+    color: black;
+    background-color: var(--color-0);
+    border-color: transparent;
+    text-decoration: none !important;
+    cursor: pointer !important;
+}
+
+/* Show copy hint tooltip on hover - adjusted position */
+.contact-value:hover:not(.copying)::before {
+    content: "Click to copy";
+    position: absolute;
+    top: -40px; /* Moved higher (was -25px) */
+    left: 80%; /* Moved to the right (was 50%) */
+    transform: translateX(-50%);
+    background-color: var(--color-0);
+    color: black;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0.9;
+    z-index: 1001;
+}
+
+/* Add animation delay to prevent tooltip overlap */
+.contact-value.copying {
+    animation: prevent-tooltip 2.8s;
+}
+
+@keyframes prevent-tooltip {
+    0%, 100% { /* No visible effect, just for timing */ }
+}
+
+/* Flash effect when copied */
+.contact-value.copied {
+    background-color: var(--color-0) !important;
+    color: black !important;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Copied tooltip styling - also adjusted for consistency */
+.copy-tooltip {
+    position: absolute;
+    top: -40px; /* Match the height of the hint */
+    left: 80%; /* Match the position of the hint */
+    transform: translateX(-50%);
+    background-color: var(--color-0);
+    color: black;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.copy-tooltip.visible {
+    opacity: 1;
+}
+
+/* Link styling with improved cursor handling */
+.contact-value a {
+    color: var(--color-0);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--color-0);
+    transition: color 0.3s, border-color 0.3s, background-color 0.3s;
+    padding: 2px 4px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer !important;
+}
+
+.contact-value a:hover {
+    color: black;
+    background-color: var(--color-0);
+    border-color: transparent;
+    text-decoration: none !important;
+    cursor: pointer !important;
+}
+
+/* Override default cursor for link elements and their children */
+.contact-value a, 
+.contact-value a *, 
+.contact-value-nocopy a, 
+.contact-value-nocopy a * {
+    cursor: pointer !important;
+}
+
+/* Force pointer cursor even with global styles */
+html body .contact-container .contact-table a,
+html body .contact-container .contact-table a * {
+    cursor: pointer !important;
+}
+
+/* For responsive design */
+@media (max-width: 576px) {
+    .contact-container {
+        padding: 20px;
+        margin: 15px;
+        width: auto;
+    }
+
+    .contact-table {
+        display: block;
+    }
+
+    .contact-table tr {
+        display: block;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .contact-label, .contact-value {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .contact-label {
+        margin-bottom: 5px;
+    }
+}

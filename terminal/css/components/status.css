@@ -1,0 +1,108 @@
+@import url('../main.css');
+
+/* Status page styling */
+.status-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-header h1 {
+    margin: 0;
+    color: var(--color-3);
+    font-size: 2rem;
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.status-badge.available {
+    background-color: var(--color-9);
+    color: var(--color-0);
+    border: 1px solid var(--color-0);
+}
+
+.status-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.status-content p {
+    margin-bottom: 16px;
+}
+
+.status-content a {
+    color: var(--color-3);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--color-3);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.status-link {
+    color: var(--color-3);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--color-3);
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.status-link:hover {
+    color: var(--color-3);
+    border-color: var(--color-3);
+}
+
+.status-looking-for {
+    margin-top: 24px;
+    background-color: var(--color-9);
+    border-left: 3px solid var(--color-0);
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.status-looking-for h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: var(--color-3);
+}
+
+.status-list {
+    list-style-type: none;
+    padding-left: 10px;
+    margin: 0;
+}
+
+.status-list li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.list-icon {
+    margin-right: 10px;
+    display: inline-block;
+}
+
+/* For responsive design */
+@media (max-width: 768px) {
+    .status-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .status-badge {
+        align-self: flex-start;
+    }
+}

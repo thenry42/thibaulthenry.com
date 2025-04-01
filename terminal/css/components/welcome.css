@@ -1,0 +1,121 @@
+@import url('../main.css');
+
+/* Welcome page styling */
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+}
+
+.welcome-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.wave-emoji {
+    font-size: 2.5rem;
+    animation: wave 2.5s infinite;
+    transform-origin: 70% 70%;
+    display: inline-block;
+}
+
+@keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.welcome-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--color-3);
+}
+
+.welcome-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.terminal-command {
+    background-color: rgba(0, 255, 0, 0.1);
+    border: 1px solid var(--color-0);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    color: var(--color-0);
+}
+
+.highlight {
+    color: var(--color-3);
+    font-weight: bold;
+}
+
+.signature {
+    margin-top: 30px;
+    font-style: italic;
+    text-align: right;
+    font-size: 1.2rem;
+}
+
+/* For responsive design */
+@media (max-width: 768px) {
+    .welcome-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .welcome-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .signature {
+        text-align: left;
+    }
+}
+
+/* Add these new styles to your existing welcome.css */
+
+.command-list {
+    list-style-type: none;
+    padding-left: 15px;
+    margin: 15px 0 20px 0;
+}
+
+.command-list li {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.command-list li:before {
+    content: "▶";
+    color: var(--color-0);
+    margin-right: 10px;
+}
+
+.fun-fact {
+    background-color: var(--color-9);
+    border-left: 3px solid var(--color-3);
+    padding: 12px 15px;
+    margin: 20px 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.emoji {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.fact-text {
+    line-height: 1.4;
+}
