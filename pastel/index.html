@@ -4,6 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thibault's Portfolio</title>
+    
+    <!-- Add preload for critical resources -->
+    <link rel="preload" href="./css/main.css" as="style">
+    
+    <!-- Add initial critical styles inline -->
+    <style>
+        /* Hide content until CSS is loaded */
+        .tabs-container {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .tabs-container.loaded {
+            opacity: 1;
+        }
+        
+        /* Basic layout styles to prevent layout shift */
+        body {
+            margin: 0;
+            padding: 0;
+            background: #fff;
+        }
+        
+        .header-container {
+            width: 100%;
+            position: relative;
+        }
+    </style>
+    
+    <!-- Load main CSS -->
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -715,7 +744,17 @@
         </div>
     </div>
 
-    <!-- Import scripts properly -->
+    <!-- Add loaded class after DOM content loaded -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Short timeout to ensure CSS is loaded
+            setTimeout(() => {
+                document.querySelector('.tabs-container').classList.add('loaded');
+            }, 100);
+        });
+    </script>
+
+    <!-- Move script to end of body -->
     <script type="module" src="js/main.js"></script>
 </body>
 </html>
