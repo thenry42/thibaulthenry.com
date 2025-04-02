@@ -58,8 +58,8 @@ header {
     align-items: center;
     padding: 0 2rem;
     z-index: 4;
-    width: auto; /* Only take up needed space */
     box-sizing: border-box;
+    width: auto; /* Mandatory to prevent header from overflowing over the tabs */
 }
 
 /* Logo styling */
@@ -411,5 +411,15 @@ header {
     .header-container {
         justify-content: center;
         padding: 0;
+    }
+
+    .header-container .logo {
+        padding-right: 2em;
+        float: right;
+    }
+
+    .header-container .logo h1::after {
+        padding-right: 0;
+        content: "Thibault Henry";
     }
 }
