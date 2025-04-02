@@ -423,3 +423,182 @@ header {
         content: "Thibault Henry";
     }
 }
+
+/* Screen size for Laptop */
+@media (max-width: 320px) {
+    
+    .logo h1::after {
+        content: "";
+        display: none;
+    }
+}
+
+/* Screen size for Tablet */
+@media (max-width: 768px) {
+    body {
+        height: 100vh;
+        max-height: 100vh;
+        padding: 5px;
+        overflow: hidden; /* Ensure body doesn't scroll */
+    }
+
+    /* Show hamburger menu only on mobile */
+    .hamburger-menu {
+        display: block;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        z-index: 100;
+        width: 30px;
+        height: 24px;
+        cursor: pointer;
+    }
+
+    /* Hamburger menu lines */
+    .hamburger-menu span {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: var(--text-color);
+        border-radius: 3px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+    }
+
+    .hamburger-menu span:nth-child(1) {
+        top: 0px;
+    }
+
+    .hamburger-menu span:nth-child(2) {
+        top: 10px;
+    }
+
+    .hamburger-menu span:nth-child(3) {
+        top: 20px;
+    }
+
+    /* Hamburger menu animation when open */
+    .hamburger-menu.open span:nth-child(1) {
+        top: 10px;
+        transform: rotate(135deg);
+    }
+
+    .hamburger-menu.open span:nth-child(2) {
+        opacity: 0;
+        left: -60px;
+    }
+
+    .hamburger-menu.open span:nth-child(3) {
+        top: 10px;
+        transform: rotate(-135deg);
+    }
+
+    /* Mobile navigation menu - fix visibility issues */
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: -250px; /* Hidden by default */
+        width: 250px;
+        height: 100%;
+        background: var(--pastel-03);
+        z-index: 99;
+        transition: left 0.3s ease;
+        padding-top: 60px;
+        overflow-y: auto;
+        border-right: 1px solid var(--text-color);
+        display: none; /* Hidden by default */
+    }
+
+    @media (max-width: 768px) {
+        /* Make sure mobile nav is displayed in mobile view */
+        .mobile-nav {
+            display: block; /* Show the container in mobile */
+        }
+        
+        /* When open, move into view */
+        .mobile-nav.open {
+            left: 0;
+        }
+        
+        /* Other styles remain the same */
+    }
+
+    /* Mobile nav items */
+    .mobile-nav .nav-item {
+        padding: 15px 20px;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 600;
+        color: var(--text-color);
+        border-bottom: 1px solid var(--pastel-01);
+        cursor: pointer;
+    }
+
+    .mobile-nav .nav-item.active {
+        background: var(--pastel-02);
+    }
+
+    /* Overlay when menu is open */
+    .mobile-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 98;
+    }
+
+    .mobile-overlay.open {
+        display: block;
+    }
+
+    /* Hide desktop tabs on mobile */
+    .tabs {
+        display: none;
+    }
+
+    .logo h1::after {
+        content: "";
+    }
+
+    /* Full width content on mobile */
+    .tabs-container {
+        width: inherit;
+        max-width: inherit;
+        margin: 0;
+    }
+
+    .tab-content {
+        width: inherit;
+        max-width: inherit;
+        height: inherit;
+        max-height: inherit;
+        min-width: auto; /* Override min-width */
+        padding: 1rem; /* Smaller padding for mobile */
+        border-radius: 1em; /* Remove border radius on mobile */
+    }
+
+    /* Adjust header for mobile */
+    header {
+        margin-bottom: 5px;
+    }
+
+    .header-container {
+        justify-content: center;
+        padding: 0;
+    }
+
+    .header-container .logo {
+        padding-right: 2em;
+        float: right;
+    }
+
+    .header-container .logo h1::after {
+        padding-right: 0;
+        content: "Thibault Henry";
+    }
+}

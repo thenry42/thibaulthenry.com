@@ -1,6 +1,6 @@
 import { runHelp } from './help.js';
 import { clearViewport, displayHtmlFile, loadContentWithoutHistory } from './viewport.js';
-import { updateCurrentNavItemDisplay, currentNavItem, navTo } from './navigation.js';
+import { updateCurrentNavItemDisplay, currentNavItem, navTo, navPrev } from './navigation.js';
 import { addToHistory, getHistory, getHistoryItem } from './commandHistory.js';
 import { showTerminal } from './toggleTerminal.js';
 
@@ -125,10 +125,6 @@ export function initializeTerminal()
             if (command) {
                 printOutput("> " + command);
                 processCommand(command);
-                
-                // Add to history and reset history position
-                addToHistory(command);
-                historyPosition = -1;
             }
             inputField.value = "";
             focusInput(); // Ensure input stays focused after entering command
@@ -180,6 +176,10 @@ export function simulateCommand(command)
 
 export function processCommand(command)
 {
+    // Add command to history when processed
+    addToHistory(command);
+    historyPosition = -1;
+
     switch (command.toLowerCase()) {
         case "cat welcome":
         case "cd welcome":
