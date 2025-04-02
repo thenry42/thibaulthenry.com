@@ -206,8 +206,8 @@ h2 {
 
     body {
         padding: 5px;
-        height: 100vh;
-        max-height: 100vh;
+        height: calc(100vh - 10px);
+        max-height: calc(100vh - 10px);
         scrollbar-width: none;
     }
 
@@ -233,4 +233,8 @@ h2 {
         font-size: 14px;
     }
 
+    #content-container {
+        font-size: 14px;
+        padding: 5px;
+    }
 }

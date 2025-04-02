@@ -36,6 +36,27 @@
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
+    <!-- Hamburger menu -->
+    <div class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Mobile navigation -->
+    <div class="mobile-nav">
+        <div class="nav-item active" data-tab="welcome" onclick="window.switchTab('welcome')">welcome</div>
+        <div class="nav-item" data-tab="projects" onclick="window.switchTab('projects')">projects</div>
+        <div class="nav-item" data-tab="education" onclick="window.switchTab('education')">education</div>
+        <div class="nav-item" data-tab="experiences" onclick="window.switchTab('experiences')">experiences</div>
+        <div class="nav-item" data-tab="skills" onclick="window.switchTab('skills')">skills</div>
+        <div class="nav-item" data-tab="about" onclick="window.switchTab('about')">about</div>
+        <div class="nav-item" data-tab="contact" onclick="window.switchTab('contact')">contact</div>
+    </div>
+
+    <!-- Mobile overlay -->
+    <div class="mobile-overlay"></div>
+
     <!-- Updated header with navigation -->
     <header>
         <div class="header-container">
@@ -751,6 +772,65 @@
             setTimeout(() => {
                 document.querySelector('.tabs-container').classList.add('loaded');
             }, 100);
+            
+            // Hamburger menu functionality
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const overlay = document.querySelector('.mobile-overlay');
+            
+            if (hamburger && mobileNav && overlay) {
+                console.log('Mobile navigation elements found');
+                
+                // Toggle menu when hamburger is clicked
+                hamburger.addEventListener('click', function() {
+                    console.log('Hamburger clicked');
+                    this.classList.toggle('open');
+                    mobileNav.classList.toggle('open');
+                    overlay.classList.toggle('open');
+                });
+                
+                // Close menu when overlay is clicked
+                overlay.addEventListener('click', function() {
+                    hamburger.classList.remove('open');
+                    mobileNav.classList.remove('open');
+                    this.classList.remove('open');
+                });
+                
+                // Mobile navigation functionality
+                document.querySelectorAll('.mobile-nav .nav-item').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const tabId = this.getAttribute('data-tab');
+                        console.log('Nav item clicked:', tabId);
+                        
+                        // Update active classes for mobile nav items
+                        document.querySelectorAll('.mobile-nav .nav-item').forEach(navItem => {
+                            navItem.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // Update active classes for tabs (for desktop consistency)
+                        document.querySelectorAll('.tab').forEach(tab => {
+                            tab.classList.remove('active');
+                        });
+                        const desktopTab = document.querySelector(`.tab[data-tab="${tabId}"]`);
+                        if (desktopTab) desktopTab.classList.add('active');
+                        
+                        // Show corresponding tab content
+                        document.querySelectorAll('.tab-pane').forEach(pane => {
+                            pane.classList.remove('active');
+                        });
+                        const tabPane = document.querySelector(`.tab-pane[data-tab="${tabId}"]`);
+                        if (tabPane) tabPane.classList.add('active');
+                        
+                        // Close mobile menu
+                        hamburger.classList.remove('open');
+                        mobileNav.classList.remove('open');
+                        overlay.classList.remove('open');
+                    });
+                });
+            } else {
+                console.error('Mobile navigation elements not found in the DOM');
+            }
         });
     </script>
 
