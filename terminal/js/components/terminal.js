@@ -1,6 +1,6 @@
 import { runHelp } from './help.js';
 import { clearViewport, displayHtmlFile, loadContentWithoutHistory } from './viewport.js';
-import { updateCurrentNavItemDisplay, currentNavItem, navTo } from './navigation.js';
+import { updateCurrentNavItemDisplay, currentNavItem, navTo, navPrev } from './navigation.js';
 import { addToHistory, getHistory, getHistoryItem } from './commandHistory.js';
 import { showTerminal } from './toggleTerminal.js';
 
@@ -125,10 +125,6 @@ export function initializeTerminal()
             if (command) {
                 printOutput("> " + command);
                 processCommand(command);
-                
-                // Add to history and reset history position
-                addToHistory(command);
-                historyPosition = -1;
             }
             inputField.value = "";
             focusInput(); // Ensure input stays focused after entering command
@@ -180,46 +176,78 @@ export function simulateCommand(command)
 
 export function processCommand(command)
 {
+    // Add command to history when processed
+    addToHistory(command);
+    historyPosition = -1;
+
     switch (command.toLowerCase()) {
+        case "cat welcome":
+        case "cd welcome":
         case "welcome":
             printOutput("Displaying welcome message...");
             displayHtmlFile("welcome.html", "welcome-content");
+            inputField.value = "";
             break;
+        case "ls":
+        case "cat help":
+        case "man help":
         case "help":
             //showTerminal();
             printOutput(runHelp());
             inputField.value = "";
             break;
+        case "cd status":
+        case "cat status":
         case "status":
             printOutput("Displaying status...");
             displayHtmlFile("status.html", "status-content");
+            inputField.value = "";
             break;
+        case "cd projects":
+        case "cat projects":
         case "projects":
             printOutput("Displaying projects...");
             displayHtmlFile("projects.html", "projects-content");
+            inputField.value = "";
             break;
+        case "cd skills":
+        case "cat skills":
         case "skills":
             printOutput("Displaying skills...");
             displayHtmlFile("skills.html", "skills-content");
+            inputField.value = "";
             break;
+        case "cd experiences":
+        case "cat experiences":
         case "experiences":
             printOutput("Displaying experiences...");
             displayHtmlFile("experiences.html", "experiences-content");
+            inputField.value = "";
             break;
+        case "cd education":
+        case "cat education":
         case "education":
             printOutput("Displaying education...");
             displayHtmlFile("education.html", "education-content");
+            inputField.value = "";
             break;
+        case "cd about":
+        case "cat about":
         case "about":
             printOutput("Displaying about...");
             displayHtmlFile("about.html", "about-content");
+            inputField.value = "";
             break;
+        case "cd contact":
+        case "cat contact":
         case "contact":
             printOutput("Displaying contact information...");
             displayHtmlFile("contact.html", "contact-content");
+            inputField.value = "";
             break;
         case "history":
             window.commandHistory();
+            inputField.value = "";
             break;
         case "clear":
             outputDiv.innerHTML = "";

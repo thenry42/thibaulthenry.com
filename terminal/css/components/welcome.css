@@ -119,3 +119,15 @@
 .fact-text {
     line-height: 1.4;
 }
+
+@media (max-width: 480px) {
+    .welcome-container {
+        padding: 5px;
+    }
+
+    .welcome-content p {
+        font-size: 14px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+}

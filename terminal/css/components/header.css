@@ -38,7 +38,6 @@
 .nav-tabs {
     display: flex;
     overflow: hidden;
-    height: 45px;
     margin: 0;
 }
 
@@ -157,8 +156,7 @@
     #logo-container {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
-        margin-bottom: 10px;
+        gap: 5px;
     }
     
     #logo {
@@ -187,8 +185,6 @@
     
     .menu-right {
         order: 2; /* Keep next to menu-left */
-        margin-top: 0; /* Remove top margin */
-        margin-left: 15px; /* Add some space between menu sections */
     }
     
     .menu-left {
@@ -205,12 +201,12 @@
     }
 
     .nav-tabs {
-        margin: 0 15px;
+        height: 3em;
     }
     
     .nav-arrow {
-        width: 30px;
-        height: 30px;
+        width: 3em;
+        height: 3em;
         font-size: 14px;
     }
 
