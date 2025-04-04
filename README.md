@@ -2,7 +2,7 @@
 
 # My Portfolio Website!
 
-This is my personal portfolio website showcasing my professional background and experience. The site features a unique dual-interface design that allows visitors to choose their preferred experience:
+This is my personal [portfolio website](https://thibaulthenry.com/) showcasing my professional background and experience. The site features a unique dual-interface design that allows visitors to choose their preferred experience:
 
 - **Terminal Interface**: A retro command-line experience for tech enthusiasts
 - **Pastel Interface**: A modern, clean design with a soft pastel color scheme
