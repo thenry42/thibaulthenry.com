@@ -1,4 +1,4 @@
-<img src="./assets/img/landing-page-portfolio.png" alt="Portfolio preview showing both terminal and pastel interfaces" style="width: 1000px;">
+[<img src="./assets/img/landing-page-portfolio.png" alt="Portfolio preview showing both terminal and pastel interfaces" style="width: 1000px;">](https://thibaulthenry.com/)
 
 # My Portfolio Website!
 
