@@ -48,4 +48,4 @@ This is my personal portfolio website showcasing my professional background and 
 
 ## License
 
-All rights reserved. The code and content of this portfolio website are proprietary.
+This project is licensed under the Unlicense. See the [LICENSE](LICENCE) file for details.
